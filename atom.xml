@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[CCFE'S BLOG]]></title>
+  <subtitle><![CDATA[CCfe的前端技术博客]]></subtitle>
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://ccfe.github.io/"/>
+  <updated>2015-11-22T14:51:31.000Z</updated>
+  <id>http://ccfe.github.io/</id>
+  
+  <author>
+    <name><![CDATA[CCFE]]></name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[second blog]]></title>
+    <link href="http://ccfe.github.io/2015/11/20/second-blog/"/>
+    <id>http://ccfe.github.io/2015/11/20/second-blog/</id>
+    <published>2015-11-20T15:13:53.000Z</published>
+    <updated>2015-11-22T14:51:31.000Z</updated>
+    <content type="html"><![CDATA[<p>qweqweqweqwh</p>
+<h2 id="公式">公式</h2><p>$$J_\alpha(x)=\sum _{m=0}^\infty \frac{(-1)^ m}{m! \, \Gamma (m + \alpha + 1)}{\left({\frac{x}{2}}\right)}^{2 m + \alpha }$$</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>qweqweqweqwh</p>
+<h2 id="公式">公式</h2><p>$$J_\alpha(x)=\sum _{m=0}^\infty \frac{(-1)^ m}{m! \, \Gamma (m + \alpha + 1)}{\left({\frac{x}{2}}]]>
+    </summary>
+    
+      <category term="123" scheme="http://ccfe.github.io/tags/123/"/>
+    
+      <category term="开始" scheme="http://ccfe.github.io/tags/%E5%BC%80%E5%A7%8B/"/>
+    
+      <category term="我" scheme="http://ccfe.github.io/tags/%E6%88%91/"/>
+    
+      <category term="日记" scheme="http://ccfe.github.io/tags/%E6%97%A5%E8%AE%B0/"/>
+    
+      <category term="日志" scheme="http://ccfe.github.io/categories/%E6%97%A5%E5%BF%97/"/>
+    
+      <category term="第二天" scheme="http://ccfe.github.io/categories/%E6%97%A5%E5%BF%97/%E7%AC%AC%E4%BA%8C%E5%A4%A9/"/>
+    
+  </entry>
+  
+</feed>
