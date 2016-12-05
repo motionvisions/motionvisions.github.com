@@ -4,9 +4,9 @@
   <subtitle>考拉前端团队 KAOLA-FED</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://motionvisions.github.io/"/>
   <updated>2016-11-12T08:59:39.000Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://motionvisions.github.io/</id>
   
   <author>
     <name>KAOLA FED</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2016/11/12/hello-world/"/>
-    <id>http://yoursite.com/2016/11/12/hello-world/</id>
+    <link href="https://motionvisions.github.io/2016/11/12/hello-world/"/>
+    <id>https://motionvisions.github.io/2016/11/12/hello-world/</id>
     <published>2016-11-12T08:59:39.000Z</published>
     <updated>2016-11-12T08:59:39.000Z</updated>
     
