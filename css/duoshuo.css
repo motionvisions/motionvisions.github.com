@@ -1,7 +1,7 @@
 /* 设置圆形头像 */
 #ds-reset .ds-avatar img {
-  width: 54px;
-  height: 54px !important; /*设置图像的长和宽*/
+  width: 46px !important;
+  height: 46px !important; /*设置图像的长和宽*/
   border-radius: 5px !important; /*设置图像圆角效果,在这里我直接设置了超过 width/2 的像素，即为圆形了*/
   -webkit-border-radius: 5px !important; /*圆角效果：兼容webkit浏览器*/
   -moz-border-radius: 5px !important;
