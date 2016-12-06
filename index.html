@@ -78,30 +78,20 @@ ga('send', 'pageview');
                                     <a class="main-nav-list-link" href="/">首页</a>
                                 </li>
                             
-                                        
-                                    
                                 <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="/webdev/index.html">PC Web端</a>
+                                    <a class="main-nav-list-link" href="/categories/技术文章/">技术文章</a>
                                 </li>
                             
                                 <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="/wapdev/index.html">移动Web端</a>
+                                    <a class="main-nav-list-link" href="/categories/动效展示/">动效展示</a>
                                 </li>
                             
                                 <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="/techblog/index.html'">技术文章</a>
+                                    <a class="main-nav-list-link" href="/categories/工具/">工具</a>
                                 </li>
                             
                                 <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="/display/index.html">动效展示</a>
-                                </li>
-                            
-                                <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="/tools/index.html">工具</a>
-                                </li>
-                            
-                                <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="/about/index.html">关于我们</a>
+                                    <a class="main-nav-list-link" href="/about">关于我们</a>
                                 </li>
                             
                         </ul>
@@ -200,7 +190,7 @@ ga('send', 'pageview');
         
         <div class="article-meta">
             <p class="category">
-            
+            <a class="article-category-link" href="/categories/技术文章/">技术文章</a>
             </p>
             <p class="date"><time datetime="2016-11-12T08:59:39.000Z" itemprop="datePublished">2016-11-12</time></p>
         </div>
@@ -276,7 +266,7 @@ Quick
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/技术文章/">技术文章</a></p>
                             <p class="item-title"><a href="/2016/11/12/hello-world/" class="title">Hello World</a></p>
                             <p class="item-date"><time datetime="2016-11-12T08:59:39.000Z" itemprop="datePublished">2016-11-12</time></p>
                         </div>
@@ -288,6 +278,13 @@ Quick
 
             
                 
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术文章/">技术文章</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
 
             
                 
@@ -301,9 +298,23 @@ Quick
 
             
                 
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ADFA-tags-tags/">ADFA tags tags</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
 
             
                 
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/ADFA-tags-tags/" style="font-size: 10px;">ADFA tags tags</a>
+        </div>
+    </div>
+
 
             
                 
@@ -337,11 +348,15 @@ Quick
         <div class="container-inner">
             <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
             <div class="credit">
-                <p class="copyright">Copyright&nbsp;©&nbsp;2016 KAOLA FED. All rights reserved.</p>
+                <p class="copyright">Copyright&nbsp;©&nbsp;2016 <b>KAOLA FED</b>. All rights reserved.</p>
             </div>
+            <p class="visitstatus">
+                <span style="display: inline;" id="busuanzi_container_site_uv"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;<span id="busuanzi_value_site_uv" font="微软雅黑" style="color:white"></span></span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<span style="display: inline;" id="busuanzi_container_site_pv"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i>&nbsp;&nbsp;<span id="busuanzi_value_site_pv" font="微软雅黑" style="color:white"></span></span>
+            </p>
         </div>
     </div>
 </footer>
+<!-- 百度提交 -->
 <script>
 (function(){
     var bp = document.createElement('script');
@@ -356,6 +371,69 @@ Quick
     s.parentNode.insertBefore(bp, s);
 })();
 </script>
+<!-- 文章目录 -->
+<script>
+(function(){
+    var $itemHasChild = $("#toc .toc-item:has(> .toc-child)");
+    var $titleHasChild = $itemHasChild && $itemHasChild.children(".toc-link");
+    var $iconToFold = $(".toc-item > .fa-caret-down");
+    var $iconToExpand = $(".toc-item > .fa-caret-right");
+    
+    $itemHasChild && $itemHasChild.prepend("<i class='fa fa-caret-down'></i><i class='fa fa-caret-right'></i>");
+    $iconToExpand.addClass("hide");
+
+    var clickIcon = function(){
+        $("#toc .toc-item > i").click(function(){
+            $(this).siblings(".toc-child").slideToggle(100);
+            $(this).toggleClass("hide");
+            $(this).siblings("i").toggleClass("hide");
+        })
+    }()
+
+    // 默认展开目录，所以隐藏掉表示“目录已展开”的图标（向下的小三角）
+    var $iconToFold = $(".toc-item > .fa-caret-down");
+    $iconToExpand.addClass("hide");
+    var clickTitle = function(){
+        $titleHasChild.dblclick(function(){
+            $(this).siblings(".toc-child").hide(100);
+            $(this).siblings("i").toggleClass("hide");
+        })
+        // After dblclick enent
+        $titleHasChild.click(function(){
+            var $curentTocChild = $(this).siblings(".toc-child");
+            if ($curentTocChild.is(":hidden")) {
+                $curentTocChild.show(100);
+                $(this).siblings("i").toggleClass("hide");
+            }
+        })
+    }();
+
+    var clickTocTitle = function(){
+        var $iconToExpand = $(".toc-item > .fa-caret-right");
+        var $iconToFold = $(".toc-item > .fa-caret-down");
+        var $subToc = $titleHasChild.next(".toc-child");
+
+        var $tocTitle = $("#toc .toc-title");
+
+        // 当包含多级目录时再执行
+        if ($titleHasChild.length) {
+            $tocTitle.addClass("clickable");
+            $tocTitle.click(function(){
+                if ($subToc.is(":hidden")) {
+                    $subToc.show(150);
+                    $iconToExpand.removeClass("hide");
+                    $iconToFold.addClass("hide");
+                } else {
+                    $subToc.hide(100);
+                    $iconToExpand.addClass("hide");
+                    $iconToFold.removeClass("hide");
+                }
+            })
+        }
+    }();
+})();
+</script>
+
         
     
     <script type="text/javascript">
