@@ -171,6 +171,8 @@ ga('send', 'pageview');
             <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
                 
+                <span title="关闭目录" class="sidebar-toggle" id="sidebar-toggle"><i class='fa fa-caret-left'></i></span>
+                <span title="展开目录" class="sidebar-toggle-close" id="sidebar-toggle-close"><i class='fa fa-caret-right'></i></span>
             </div>
             <p>Welcome to visit.</p>
 
@@ -180,7 +182,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="https://motionvisions.github.io/about/index.html" data-id="ciwdapuee000e9qkrz6e3e26j" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://motionvisions.github.io/about/index.html" data-id="ciwdx09to00002hkrwcek95mc" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -421,13 +423,44 @@ ga('send', 'pageview');
 <!-- 文章目录 -->
 <script>
 (function(){
+    var $tocBox = $("#toc");
+    var $toggleCloseBtn = $("#sidebar-toggle");
+    var $toggleOpenBtn = $("#sidebar-toggle-close");
+
     var $itemHasChild = $("#toc .toc-item:has(> .toc-child)");
     var $titleHasChild = $itemHasChild && $itemHasChild.children(".toc-link");
+    $itemHasChild && $itemHasChild.prepend("<i class='fa fa-caret-down'></i><i class='fa fa-caret-right'></i>");
+
     var $iconToFold = $(".toc-item > .fa-caret-down");
     var $iconToExpand = $(".toc-item > .fa-caret-right");
-    
-    $itemHasChild && $itemHasChild.prepend("<i class='fa fa-caret-down'></i><i class='fa fa-caret-right'></i>");
     $iconToExpand.addClass("hide");
+
+    $toggleCloseBtn.on("click", function() {
+        var d = $tocBox.width() + 10;
+        $tocBox.animate({
+            left: -d
+        }, 350);
+        $(this).hide();
+        setTimeout(function(){
+            $toggleOpenBtn.show(200);
+        },350);
+    });
+
+    $toggleOpenBtn.on("click", function() {
+        $tocBox.animate({
+            left: 0
+        }, 350);
+        $(this).hide();
+        setTimeout(function(){
+            $toggleCloseBtn.show();
+        },350);
+    });
+
+    $toggleOpenBtn.click(function(){
+        $(this).hide(100);
+        $tocBox.show(600);
+        $toggleCloseBtn.show(600);
+    });
 
     var clickIcon = function(){
         $("#toc .toc-item > i").click(function(){
