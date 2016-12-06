@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://motionvisions.github.io/"/>
-  <updated>2016-12-06T20:17:21.000Z</updated>
+  <updated>2016-12-06T20:20:10.000Z</updated>
   <id>https://motionvisions.github.io/</id>
   
   <author>
@@ -19,8 +19,8 @@
     <title>Hello World</title>
     <link href="https://motionvisions.github.io/2016/12/07/hello-world/"/>
     <id>https://motionvisions.github.io/2016/12/07/hello-world/</id>
-    <published>2016-12-06T19:45:23.000Z</published>
-    <updated>2016-12-06T20:17:21.000Z</updated>
+    <published>2016-12-06T20:20:10.000Z</published>
+    <updated>2016-12-06T20:20:10.000Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <p><img src="//img.alicdn.com/tfs/TB1_ZnHNXXXXXXBXpXXXXXXXXXX-900-500.jpg" alt="图标" title="图标"></p>
