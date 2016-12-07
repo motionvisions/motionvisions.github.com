@@ -252,6 +252,9 @@ code {
 .container-inner:after {
   clear: both;
 }
+.container-inner.container-inner-article {
+  max-width: 1300px;
+}
 .left,
 .alignleft {
   float: left;
