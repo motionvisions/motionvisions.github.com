@@ -3,19 +3,32 @@
 <head>
     <meta charset="utf-8">
     
-    <title>about | 考拉动效</title>
+    <title>Canvas上绘制动画 | 考拉动效</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="description" content="Welcome to visit.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="https://motionvisions.github.io/about/index.html">
+        <meta name="keywords" content="canvas" />
+    
+    <meta name="description" content="Canvas.drawImage我们知道我们需要调用drawImage 在画布上去绘制一个图片，那如果我们要绘制一个动图我们需要如何实现呢？我们要获取精灵图片对应的那一帧，然后在画布上绘制。每次绘制一帧，我们需要先清空原先画布上的内容
+1void ctx.drawImage(iamge. sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
+
+注意:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Canvas上绘制动画">
+<meta property="og:url" content="https://motionvisions.github.io/2016/12/07/Canvas上绘制动画/index.html">
 <meta property="og:site_name" content="考拉动效">
-<meta property="og:description" content="Welcome to visit.">
-<meta property="og:updated_time" content="2016-12-06T20:20:10.000Z">
+<meta property="og:description" content="Canvas.drawImage我们知道我们需要调用drawImage 在画布上去绘制一个图片，那如果我们要绘制一个动图我们需要如何实现呢？我们要获取精灵图片对应的那一帧，然后在画布上绘制。每次绘制一帧，我们需要先清空原先画布上的内容
+1void ctx.drawImage(iamge. sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
+
+注意:">
+<meta property="og:image" content="https://mdn.mozillademos.org/files/225/Canvas_drawimage.jpg">
+<meta property="og:updated_time" content="2016-12-07T02:09:02.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
-<meta name="twitter:description" content="Welcome to visit.">
+<meta name="twitter:title" content="Canvas上绘制动画">
+<meta name="twitter:description" content="Canvas.drawImage我们知道我们需要调用drawImage 在画布上去绘制一个图片，那如果我们要绘制一个动图我们需要如何实现呢？我们要获取精灵图片对应的那一帧，然后在画布上绘制。每次绘制一帧，我们需要先清空原先画布上的内容
+1void ctx.drawImage(iamge. sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
+
+注意:">
+<meta name="twitter:image" content="https://mdn.mozillademos.org/files/225/Canvas_drawimage.jpg">
     
 
     
@@ -148,33 +161,70 @@ ga('send', 'pageview');
                         <div class="main-body-header">
     <h1 class="header">
     
-    <em class="page-title-link" data-url="/about/index.html">about</em>
+    <a class="page-title-link" href="/categories/技术文章/">技术文章</a>
     </h1>
 </div>
                         <div class="main-body-content">
-                            <article id="page-undefined" class="article article-single article-type-page" itemscope itemprop="blogPost">
+                            <article id="post-Canvas上绘制动画" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        about
+        Canvas上绘制动画
         </h1>
     
 
             </header>
         
         
+            <div class="article-subtitle">
+                作者：<b>ann</b> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 发表于：<a href="/2016/12/07/Canvas上绘制动画/" class="article-date">
+    <time datetime="2016-12-07T02:07:49.000Z" itemprop="datePublished">2016-12-07</time>
+</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                
+    <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/canvas/">canvas</a></li></ul>
+
+                <span class="head-plus">
+                    <i class="fa fa-user"></i>
+                <span id="busuanzi_value_page_pv">
+                    <i class="fa fa-spinner fa-spin"></i>
+                </span>次访问   </span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                <span class="head-plus">
+                    <i class="fa fa-comments"></i>
+                <span class="ds-thread-count" data-thread-key="2016/12/07/Canvas上绘制动画/">
+                    <i class="fa fa-spinner fa-spin"></i></span>
+                </span>
+            </div>
+        
         
         <div class="article-entry" itemprop="arti  cleBody">
             <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                
+                <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Canvas-drawImage"><span class="toc-number">1.</span> <span class="toc-text">Canvas.drawImage</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetInterval-不断地清空画布与绘制图案"><span class="toc-number">2.</span> <span class="toc-text">SetInterval 不断地清空画布与绘制图案</span></a></li></ol>
                 <span title="关闭目录" class="sidebar-toggle" id="sidebar-toggle"><i class='fa fa-caret-left'></i></span>
                 <span title="展开目录" class="sidebar-toggle-close" id="sidebar-toggle-close"><i class='fa fa-caret-right'></i></span>
             </div>
-            <p>Welcome to visit.</p>
+            <h4 id="Canvas-drawImage"><a href="#Canvas-drawImage" class="headerlink" title="Canvas.drawImage"></a>Canvas.drawImage</h4><p>我们知道我们需要调用drawImage 在画布上去绘制一个图片，那如果我们要绘制一个动图我们需要如何实现呢？我们要获取精灵图片对应的那一帧，然后在画布上绘制。每次绘制一帧，我们需要先清空原先画布上的内容</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> ctx.drawImage(iamge. sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)</div></pre></td></tr></table></figure>
+<p><img src="https://mdn.mozillademos.org/files/225/Canvas_drawimage.jpg" alt=""></p>
+<p>注意: sx,sy 是指源精灵图片获取的位置， dx,dy 指的是在画布上需要对应的位置，所以我们写一个Sprite 类，这个类一般要描述下面这些信息</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> bird_opt = &#123;</div><div class="line">            <span class="attr">image</span>: image,</div><div class="line">            <span class="attr">startX</span>: <span class="number">100</span>, <span class="comment">//绘制的起始坐标X</span></div><div class="line">            startY: <span class="number">100</span>, <span class="comment">//绘制的起始坐标Y</span></div><div class="line">            rect: &#123;<span class="attr">x</span>:<span class="number">0</span>,<span class="attr">y</span>:<span class="number">0</span>,<span class="attr">w</span>:<span class="number">86</span>,<span class="attr">h</span>:<span class="number">60</span>&#125;,</div><div class="line">            <span class="attr">frames</span>: [ <span class="comment">//精灵动画每一帧的相关信息</span></div><div class="line">                        &#123;<span class="attr">x</span>:<span class="number">0</span>,<span class="attr">y</span>:<span class="number">0</span>,<span class="attr">w</span>:<span class="number">86</span>,<span class="attr">h</span>:<span class="number">60</span>&#125;,</div><div class="line">                        &#123;<span class="attr">x</span>:<span class="number">0</span>,<span class="attr">y</span>:<span class="number">60</span>,<span class="attr">w</span>:<span class="number">86</span>,<span class="attr">h</span>:<span class="number">60</span>&#125;,</div><div class="line">                        &#123;<span class="attr">x</span>:<span class="number">0</span>,<span class="attr">y</span>:<span class="number">120</span>,<span class="attr">w</span>:<span class="number">86</span>,<span class="attr">h</span>:<span class="number">60</span>&#125;</div><div class="line">                    ]</div><div class="line">        &#125;;</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Sprite</span>(<span class="params">opt</span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> sprite_proto = &#123;&#125;;</div><div class="line">         sprite_proto.current_frame_index = <span class="number">0</span>;</div><div class="line">         sprite_proto.image = opt.image;</div><div class="line">         sprite_proto.rect = opt.rect;</div><div class="line">         sprite_proto.frames = opt.frames;</div><div class="line">         sprite_proto.startX = opt.startX;</div><div class="line">         sprite_proto.startY = opt.startY;</div><div class="line"></div><div class="line">         sprite_proto.getNextFrame = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="keyword">var</span> curFrame = <span class="keyword">this</span>.frames[<span class="keyword">this</span>.current_frame_index];</div><div class="line">            <span class="keyword">this</span>.current_frame_index++;</div><div class="line"></div><div class="line">            <span class="keyword">if</span>(<span class="keyword">this</span>.current_frame_index ==  <span class="keyword">this</span>.frames.length) </div><div class="line">            <span class="keyword">this</span>.current_frame_index = <span class="number">0</span>;</div><div class="line"></div><div class="line">            <span class="keyword">return</span> curFrame;                </div><div class="line">         &#125;</div><div class="line"></div><div class="line">         <span class="keyword">return</span> sprite_proto;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>我们再创建一个绘制画布类DrawCanvas, 主要需要两个方法，一个是renderFrame（绘制精灵的某帧）, 一个是清空画布clear</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">DrawCanvas</span>(<span class="params">opt</span>)</span>&#123;</div><div class="line">        <span class="keyword">this</span>.context = opt.context;</div><div class="line">        <span class="keyword">this</span>.width = opt.width;</div><div class="line">        <span class="keyword">this</span>.height = opt.height;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    DrawCanvas.prototype.renderFrame = <span class="function"><span class="keyword">function</span>(<span class="params">sprite</span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> frame = sprite.getNextFrame();</div><div class="line"></div><div class="line">        <span class="keyword">this</span>.context.drawImage(</div><div class="line">                sprite.image,</div><div class="line">                frame.x,</div><div class="line">                frame.y,</div><div class="line">                frame.w,</div><div class="line">                frame.h,</div><div class="line">                sprite.startX,</div><div class="line">                sprite.startY,</div><div class="line">                sprite.rect.w,</div><div class="line">                sprite.rect.h</div><div class="line">        );</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    DrawCanvas.prototype.clear = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">         <span class="keyword">this</span>.context.clearRect(<span class="number">0</span>,<span class="number">0</span>,<span class="keyword">this</span>.width, <span class="keyword">this</span>.height);   </div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>结合上面两个类，我们就可以再画布上先绘制精灵图的第一帧</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> image = <span class="keyword">new</span> Image();</div><div class="line">    image.src = <span class="string">'/images/bird.png'</span>;</div><div class="line"></div><div class="line">    image.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> bird_opt = &#123;</div><div class="line">                <span class="attr">image</span>: image,</div><div class="line">                <span class="attr">startX</span>: <span class="number">100</span>,</div><div class="line">                <span class="attr">startY</span>: <span class="number">100</span>,</div><div class="line">                <span class="attr">rect</span>: &#123;<span class="attr">x</span>:<span class="number">0</span>,<span class="attr">y</span>:<span class="number">0</span>,<span class="attr">w</span>:<span class="number">86</span>,<span class="attr">h</span>:<span class="number">60</span>&#125;,</div><div class="line">                <span class="attr">frames</span>: [</div><div class="line">                            &#123;<span class="attr">x</span>:<span class="number">0</span>,<span class="attr">y</span>:<span class="number">0</span>,<span class="attr">w</span>:<span class="number">86</span>,<span class="attr">h</span>:<span class="number">60</span>&#125;,</div><div class="line">                            &#123;<span class="attr">x</span>:<span class="number">0</span>,<span class="attr">y</span>:<span class="number">60</span>,<span class="attr">w</span>:<span class="number">86</span>,<span class="attr">h</span>:<span class="number">60</span>&#125;,</div><div class="line">                            &#123;<span class="attr">x</span>:<span class="number">0</span>,<span class="attr">y</span>:<span class="number">120</span>,<span class="attr">w</span>:<span class="number">86</span>,<span class="attr">h</span>:<span class="number">60</span>&#125;</div><div class="line">                        ]</div><div class="line">            &#125;,</div><div class="line">            birdSprite = Sprite(bird_opt),</div><div class="line">            canvas = <span class="built_in">document</span>.getElementById(<span class="string">'canvas'</span>),</div><div class="line">            canvas_opt = &#123;</div><div class="line">                <span class="attr">context</span>: canvas.getContext(<span class="string">'2d'</span>),</div><div class="line">                <span class="attr">width</span>:canvas.width,</div><div class="line">                <span class="attr">height</span>:canvas.height</div><div class="line">            &#125;;</div><div class="line"></div><div class="line">        <span class="keyword">var</span> myCanvas = <span class="keyword">new</span> DrawCanvas(canvas_opt);</div><div class="line">        myCanvas.renderFrame(birdSprite);     </div><div class="line">    &#125;;</div></pre></td></tr></table></figure>
+<h4 id="SetInterval-不断地清空画布与绘制图案"><a href="#SetInterval-不断地清空画布与绘制图案" class="headerlink" title="SetInterval 不断地清空画布与绘制图案"></a>SetInterval 不断地清空画布与绘制图案</h4><p>我们需要绘制我们的精灵图，那么我们需要setInterval清空我们的画布，绘制对应帧数的图片。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//canvas上动画的绘制是通过计时器去实现的</span></div><div class="line">        setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            myCanvas.clear();</div><div class="line">            myCanvas.renderFrame(birdSprite); </div><div class="line">        &#125;, <span class="number">200</span>);</div><div class="line"></div><div class="line"><span class="comment">//但其实做动画的最佳循环是使用requestAnimationFrame,所以我们换种写法</span></div></pre></td></tr></table></figure>
+<p>注意：我们创建我们的sprite之前我们需要预先将我们使用的图片下载完，所以我们需要</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> image = <span class="keyword">new</span> Image();</div><div class="line">image.src = <span class="string">'/images/bird.png'</span>;</div><div class="line">image.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    .....</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>所以在下一篇文章里我们会看到相关框架里面会实现preload，预先加载所有要使用的资源然后再开始绘制。以上，就是canvas动画主要的实现原理。如果想要我们的动画在不同方向上再进行移动，即我们只要不断更改我们绘制坐标位置即可。</p>
+<p><a href="http://www.alloyteam.com/2013/12/canvas-animation-optimized-discussion/" target="_blank" rel="external">拓展阅读1：canvas动画优化小议</a></p>
+<p><a href="https://www.html5rocks.com/zh/tutorials/canvas/performance/" target="_blank" rel="external">拓展阅读2：提高 HTML5 画布性能</a></p>
+<ul>
+<li>拓展阅读里面提到我们对动画可以分层，让不同频率的动画绘制在不同的图层上，同时我们对这一次图层的变化与上一次图层的内容进行对比，找出变化的区域，这也是我们称为的脏区域，这样只要更新脏区域的内容，就能提升canvas的性能了。</li>
+</ul>
 
         </div>
         <footer class="article-footer" style="display:none;">
@@ -182,7 +232,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="https://motionvisions.github.io/about/index.html" data-id="ciweaphwk0001ekkrhcbjhxsq" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://motionvisions.github.io/2016/12/07/Canvas上绘制动画/" data-id="ciweaphwf0000ekkr6n1ia0t6" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -256,7 +306,7 @@ ga('send', 'pageview');
     id="ds-recent-visitors">
 </div>
 <!-- 多说评论区 start -->
-    <div class="ds-thread" data-thread-key="about/index.html" data-title="about" data-url="https://motionvisions.github.io/about/index.html"></div>
+    <div class="ds-thread" data-thread-key="2016/12/07/Canvas上绘制动画/" data-title="Canvas上绘制动画" data-url="https://motionvisions.github.io/2016/12/07/Canvas上绘制动画/"></div>
 <!-- 多说评论区 end -->
 <!-- 多说热评文章 start -->
  <!--   <div class="ds-top-threads" data-range="daily" data-num-items="5"></div> -->
@@ -291,6 +341,19 @@ ga('send', 'pageview');
             
         </ul>
     </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2016/12/07/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">Hello World</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
     
     <div class="widgets-container">
         
