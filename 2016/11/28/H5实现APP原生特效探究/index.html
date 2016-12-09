@@ -3,19 +3,23 @@
 <head>
     <meta charset="utf-8">
     
-    <title>about | 考拉动效</title>
+    <title>H5实现APP原生特效探究 | 考拉动效</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="description" content="Welcome to visit.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="https://motionvisions.github.io/about/index.html">
+        <meta name="keywords" content="原生特效,Touch,PullDown" />
+    
+    <meta name="description" content="随着移动设备性能的提高，手机app中的native控件实现了很多交互特效。但由于很多应用，特别是电商类app，需要快速迭代活动内容，为了解决native开发周期长、跨平台、无法无缝更新的问题，现在大多数电商app通过使用webViews来实现H5+原生的Hybrid方式。如何在H5中实现native的交互特效，从而在提高用户体验，就成了一个急需解决的问题。本文就从原生3D Touch和页面的下拉上">
+<meta property="og:type" content="article">
+<meta property="og:title" content="H5实现APP原生特效探究">
+<meta property="og:url" content="https://motionvisions.github.io/2016/11/28/H5实现APP原生特效探究/index.html">
 <meta property="og:site_name" content="考拉动效">
-<meta property="og:description" content="Welcome to visit.">
-<meta property="og:updated_time" content="2016-12-06T20:20:10.000Z">
+<meta property="og:description" content="随着移动设备性能的提高，手机app中的native控件实现了很多交互特效。但由于很多应用，特别是电商类app，需要快速迭代活动内容，为了解决native开发周期长、跨平台、无法无缝更新的问题，现在大多数电商app通过使用webViews来实现H5+原生的Hybrid方式。如何在H5中实现native的交互特效，从而在提高用户体验，就成了一个急需解决的问题。本文就从原生3D Touch和页面的下拉上">
+<meta property="og:image" content="http://haitao.nos.netease.com/80e05e46155b42f492661b610f8a25b9.jpg">
+<meta property="og:updated_time" content="2016-12-09T03:33:37.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
-<meta name="twitter:description" content="Welcome to visit.">
+<meta name="twitter:title" content="H5实现APP原生特效探究">
+<meta name="twitter:description" content="随着移动设备性能的提高，手机app中的native控件实现了很多交互特效。但由于很多应用，特别是电商类app，需要快速迭代活动内容，为了解决native开发周期长、跨平台、无法无缝更新的问题，现在大多数电商app通过使用webViews来实现H5+原生的Hybrid方式。如何在H5中实现native的交互特效，从而在提高用户体验，就成了一个急需解决的问题。本文就从原生3D Touch和页面的下拉上">
+<meta name="twitter:image" content="http://haitao.nos.netease.com/80e05e46155b42f492661b610f8a25b9.jpg">
     
 
     
@@ -148,23 +152,42 @@ ga('send', 'pageview');
                         <div class="main-body-header">
     <h1 class="header">
     
-    <em class="page-title-link" data-url="/about/index.html">about</em>
+    <a class="page-title-link" href="/categories/技术文章/">技术文章</a>
     </h1>
 </div>
                         <div class="main-body-content">
-                            <article id="page-undefined" class="article article-single article-type-page" itemscope itemprop="blogPost">
+                            <article id="post-H5实现APP原生特效探究" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        about
+        H5实现APP原生特效探究
         </h1>
     
 
             </header>
         
+        
+            <div class="article-subtitle">
+                作者：<b>ccfe</b> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 发表于：<a href="/2016/11/28/H5实现APP原生特效探究/" class="article-date">
+    <time datetime="2016-11-27T16:00:00.000Z" itemprop="datePublished">2016-11-28</time>
+</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                
+    <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PullDown/">PullDown</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Touch/">Touch</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/原生特效/">原生特效</a></li></ul>
+
+                <span class="head-plus">
+                    <i class="fa fa-user"></i>
+                <span id="busuanzi_value_page_pv">
+                    <i class="fa fa-spinner fa-spin"></i>
+                </span>次访问   </span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                <span class="head-plus">
+                    <i class="fa fa-comments"></i>
+                <span class="ds-thread-count" data-thread-key="2016/11/28/H5实现APP原生特效探究/">
+                    <i class="fa fa-spinner fa-spin"></i></span>
+                </span>
+            </div>
         
         
         <div class="article-entry" itemprop="arti  cleBody">
@@ -174,7 +197,8 @@ ga('send', 'pageview');
                 <span title="关闭目录" class="sidebar-toggle" id="sidebar-toggle"><i class='fa fa-caret-left'></i></span>
                 <span title="展开目录" class="sidebar-toggle-close" id="sidebar-toggle-close"><i class='fa fa-caret-right'></i></span>
             </div>
-            <p>Welcome to visit.</p>
+            <p>随着移动设备性能的提高，手机app中的native控件实现了很多交互特效。但由于很多应用，特别是电商类app，需要快速迭代活动内容，为了解决native开发周期长、跨平台、无法无缝更新的问题，现在大多数电商app通过使用webViews来实现H5+原生的Hybrid方式。如何在H5中实现native的交互特效，从而在提高用户体验，就成了一个急需解决的问题。本文就从原生3D Touch和页面的下拉上滑交互在H5中的实现来说明。</p>
+<p><img src="http://haitao.nos.netease.com/80e05e46155b42f492661b610f8a25b9.jpg" alt="文章缩略图" title="文章缩略图"></p>
 
         </div>
         <footer class="article-footer" style="display:none;">
@@ -182,7 +206,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="https://motionvisions.github.io/about/index.html" data-id="ciwh8ogjq0001qqkrwqh7hrwf" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://motionvisions.github.io/2016/11/28/H5实现APP原生特效探究/" data-id="ciwh8ogjs0002qqkrmfxur0mg" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -256,7 +280,7 @@ ga('send', 'pageview');
     id="ds-recent-visitors">
 </div>
 <!-- 多说评论区 start -->
-    <div class="ds-thread" data-thread-key="about/index.html" data-title="about" data-url="https://motionvisions.github.io/about/index.html"></div>
+    <div class="ds-thread" data-thread-key="2016/11/28/H5实现APP原生特效探究/" data-title="H5实现APP原生特效探究" data-url="https://motionvisions.github.io/2016/11/28/H5实现APP原生特效探究/"></div>
 <!-- 多说评论区 end -->
 <!-- 多说热评文章 start -->
  <!--   <div class="ds-top-threads" data-range="daily" data-num-items="5"></div> -->
@@ -291,6 +315,23 @@ ga('send', 'pageview');
             
         </ul>
     </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2016/12/02/Canvas上绘制动画/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            Canvas上绘制动画
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+</nav>
+
     
     <div class="widgets-container">
         

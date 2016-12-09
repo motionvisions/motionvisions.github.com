@@ -88,4 +88,32 @@
     
   </entry>
   
+  <entry>
+    <title>H5实现APP原生特效探究</title>
+    <link href="https://motionvisions.github.io/2016/11/28/H5%E5%AE%9E%E7%8E%B0APP%E5%8E%9F%E7%94%9F%E7%89%B9%E6%95%88%E6%8E%A2%E7%A9%B6/"/>
+    <id>https://motionvisions.github.io/2016/11/28/H5实现APP原生特效探究/</id>
+    <published>2016-11-27T16:00:00.000Z</published>
+    <updated>2016-12-09T03:33:37.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>随着移动设备性能的提高，手机app中的native控件实现了很多交互特效。但由于很多应用，特别是电商类app，需要快速迭代活动内容，为了解决native开发周期长、跨平台、无法无缝更新的问题，现在大多数电商app通过使用webViews来实现H5+原生的Hybrid方式。如何在H5中实现native的交互特效，从而在提高用户体验，就成了一个急需解决的问题。本文就从原生3D Touch和页面的下拉上滑交互在H5中的实现来说明。</p>
+<p><img src="http://haitao.nos.netease.com/80e05e46155b42f492661b610f8a25b9.jpg" alt="文章缩略图" title="文章缩略图"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;随着移动设备性能的提高，手机app中的native控件实现了很多交互特效。但由于很多应用，特别是电商类app，需要快速迭代活动内容，为了解决native开发周期长、跨平台、无法无缝更新的问题，现在大多数电商app通过使用webViews来实现H5+原生的Hybrid方式。如
+    
+    </summary>
+    
+      <category term="技术文章" scheme="https://motionvisions.github.io/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/"/>
+    
+    
+      <category term="原生特效" scheme="https://motionvisions.github.io/tags/%E5%8E%9F%E7%94%9F%E7%89%B9%E6%95%88/"/>
+    
+      <category term="Touch" scheme="https://motionvisions.github.io/tags/Touch/"/>
+    
+      <category term="PullDown" scheme="https://motionvisions.github.io/tags/PullDown/"/>
+    
+  </entry>
+  
 </feed>
