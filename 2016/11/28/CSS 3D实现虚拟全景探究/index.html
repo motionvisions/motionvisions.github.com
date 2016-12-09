@@ -3,23 +3,35 @@
 <head>
     <meta charset="utf-8">
     
-    <title>H5实现APP原生特效探究 | 考拉动效</title>
+    <title>CSS 3D实现虚拟全景探究 | 考拉动效</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="原生特效,Touch,PullDown" />
+        <meta name="keywords" content="CSS3,3D" />
     
-    <meta name="description" content="随着移动设备性能的提高，手机app中的native控件实现了很多交互特效。但由于很多应用，特别是电商类app，需要快速迭代活动内容，为了解决native开发周期长、跨平台、无法无缝更新的问题，现在大多数电商app通过使用webViews来实现H5+原生的Hybrid方式。如何在H5中实现native的交互特效，从而在提高用户体验，就成了一个急需解决的问题。本文就从原生3D Touch和页面的下拉上">
+    <meta name="description" content="随着移动设备的发展，手机浏览器的兼容性已经变得比较令人满意，绝大部分CSS3属性和HTML5 API已经被移动浏览器支持。今年淘宝造物节的H5活动宣传页实现的3D虚拟全景令人感到惊艳。本文就是来探究如何利用CSS3 和 HTML5 API来实现一个基于浏览器的虚拟全景。
+几个例子话不多说，先上例子。
+
+第一个就是2016年的淘宝造物节。
+第二个是腾讯在2014年世界互联网大会上制作的公司介绍页。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="H5实现APP原生特效探究">
-<meta property="og:url" content="https://motionvisions.github.io/2016/11/28/H5实现APP原生特效探究/index.html">
+<meta property="og:title" content="CSS 3D实现虚拟全景探究">
+<meta property="og:url" content="https://motionvisions.github.io/2016/11/28/CSS 3D实现虚拟全景探究/index.html">
 <meta property="og:site_name" content="考拉动效">
-<meta property="og:description" content="随着移动设备性能的提高，手机app中的native控件实现了很多交互特效。但由于很多应用，特别是电商类app，需要快速迭代活动内容，为了解决native开发周期长、跨平台、无法无缝更新的问题，现在大多数电商app通过使用webViews来实现H5+原生的Hybrid方式。如何在H5中实现native的交互特效，从而在提高用户体验，就成了一个急需解决的问题。本文就从原生3D Touch和页面的下拉上">
-<meta property="og:image" content="http://haitao.nos.netease.com/80e05e46155b42f492661b610f8a25b9.jpg">
-<meta property="og:updated_time" content="2016-12-09T03:33:37.000Z">
+<meta property="og:description" content="随着移动设备的发展，手机浏览器的兼容性已经变得比较令人满意，绝大部分CSS3属性和HTML5 API已经被移动浏览器支持。今年淘宝造物节的H5活动宣传页实现的3D虚拟全景令人感到惊艳。本文就是来探究如何利用CSS3 和 HTML5 API来实现一个基于浏览器的虚拟全景。
+几个例子话不多说，先上例子。
+
+第一个就是2016年的淘宝造物节。
+第二个是腾讯在2014年世界互联网大会上制作的公司介绍页。">
+<meta property="og:image" content="http://haitao.nos.netease.com/ecd06b4b7add4a2a927fea9cd318886f.jpg">
+<meta property="og:updated_time" content="2016-12-09T06:43:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="H5实现APP原生特效探究">
-<meta name="twitter:description" content="随着移动设备性能的提高，手机app中的native控件实现了很多交互特效。但由于很多应用，特别是电商类app，需要快速迭代活动内容，为了解决native开发周期长、跨平台、无法无缝更新的问题，现在大多数电商app通过使用webViews来实现H5+原生的Hybrid方式。如何在H5中实现native的交互特效，从而在提高用户体验，就成了一个急需解决的问题。本文就从原生3D Touch和页面的下拉上">
-<meta name="twitter:image" content="http://haitao.nos.netease.com/80e05e46155b42f492661b610f8a25b9.jpg">
+<meta name="twitter:title" content="CSS 3D实现虚拟全景探究">
+<meta name="twitter:description" content="随着移动设备的发展，手机浏览器的兼容性已经变得比较令人满意，绝大部分CSS3属性和HTML5 API已经被移动浏览器支持。今年淘宝造物节的H5活动宣传页实现的3D虚拟全景令人感到惊艳。本文就是来探究如何利用CSS3 和 HTML5 API来实现一个基于浏览器的虚拟全景。
+几个例子话不多说，先上例子。
+
+第一个就是2016年的淘宝造物节。
+第二个是腾讯在2014年世界互联网大会上制作的公司介绍页。">
+<meta name="twitter:image" content="http://haitao.nos.netease.com/ecd06b4b7add4a2a927fea9cd318886f.jpg">
     
 
     
@@ -156,14 +168,14 @@ ga('send', 'pageview');
     </h1>
 </div>
                         <div class="main-body-content">
-                            <article id="post-H5实现APP原生特效探究" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-CSS 3D实现虚拟全景探究" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        H5实现APP原生特效探究
+        CSS 3D实现虚拟全景探究
         </h1>
     
 
@@ -171,11 +183,11 @@ ga('send', 'pageview');
         
         
             <div class="article-subtitle">
-                作者：<b>ccfe</b> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 发表于：<a href="/2016/11/28/H5实现APP原生特效探究/" class="article-date">
+                作者：<b>ccfe</b> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 发表于：<a href="/2016/11/28/CSS 3D实现虚拟全景探究/" class="article-date">
     <time datetime="2016-11-27T16:00:00.000Z" itemprop="datePublished">2016-11-28</time>
 </a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
                 
-    <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PullDown/">PullDown</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Touch/">Touch</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/原生特效/">原生特效</a></li></ul>
+    <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/3D/">3D</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS3/">CSS3</a></li></ul>
 
                 <span class="head-plus">
                     <i class="fa fa-user"></i>
@@ -184,7 +196,7 @@ ga('send', 'pageview');
                 </span>次访问   </span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
                 <span class="head-plus">
                     <i class="fa fa-comments"></i>
-                <span class="ds-thread-count" data-thread-key="2016/11/28/H5实现APP原生特效探究/">
+                <span class="ds-thread-count" data-thread-key="2016/11/28/CSS 3D实现虚拟全景探究/">
                     <i class="fa fa-spinner fa-spin"></i></span>
                 </span>
             </div>
@@ -193,12 +205,16 @@ ga('send', 'pageview');
         <div class="article-entry" itemprop="arti  cleBody">
             <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#几个例子"><span class="toc-number">1.</span> <span class="toc-text">几个例子</span></a></li></ol>
                 <span title="关闭目录" class="sidebar-toggle" id="sidebar-toggle"><i class='fa fa-caret-left'></i></span>
                 <span title="展开目录" class="sidebar-toggle-close" id="sidebar-toggle-close"><i class='fa fa-caret-right'></i></span>
             </div>
-            <p>随着移动设备性能的提高，手机app中的native控件实现了很多交互特效。但由于很多应用，特别是电商类app，需要快速迭代活动内容，为了解决native开发周期长、跨平台、无法无缝更新的问题，现在大多数电商app通过使用webViews来实现H5+原生的Hybrid方式。如何在H5中实现native的交互特效，从而在提高用户体验，就成了一个急需解决的问题。本文就从原生3D Touch和页面的下拉上滑交互在H5中的实现来说明。</p>
-<p><img src="http://haitao.nos.netease.com/80e05e46155b42f492661b610f8a25b9.jpg" alt="文章缩略图" title="文章缩略图"></p>
+            <p><div style="width:80%;margin:0 auto;"><img src="http://haitao.nos.netease.com/ecd06b4b7add4a2a927fea9cd318886f.jpg" alt="文章缩略图"><br></div><br>随着移动设备的发展，手机浏览器的兼容性已经变得比较令人满意，绝大部分CSS3属性和HTML5 API已经被移动浏览器支持。今年淘宝造物节的H5活动宣传页实现的3D虚拟全景令人感到惊艳。本文就是来探究如何利用CSS3 和 HTML5 API来实现一个基于浏览器的虚拟全景。</p>
+<h2 id="几个例子"><a href="#几个例子" class="headerlink" title="几个例子"></a>几个例子</h2><p>话不多说，先上例子。</p>
+<ol>
+<li>第一个就是2016年的<a href="http://show.im20.com.cn/zwj/" title="1. 淘宝造物节" target="_blank" rel="external">淘宝造物节</a>。</li>
+<li>第二个是腾讯在2014年世界互联网大会上制作的<a href="http://wic.tencent.com/" title="公司介绍页" target="_blank" rel="external">公司介绍页</a>。</li>
+</ol>
 
         </div>
         <footer class="article-footer" style="display:none;">
@@ -206,7 +222,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="https://motionvisions.github.io/2016/11/28/H5实现APP原生特效探究/" data-id="ciwh946hb0002tfkr9swnxgr5" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://motionvisions.github.io/2016/11/28/CSS 3D实现虚拟全景探究/" data-id="ciwhffznx0000z7krjzdrvjg2" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -280,7 +296,7 @@ ga('send', 'pageview');
     id="ds-recent-visitors">
 </div>
 <!-- 多说评论区 start -->
-    <div class="ds-thread" data-thread-key="2016/11/28/H5实现APP原生特效探究/" data-title="H5实现APP原生特效探究" data-url="https://motionvisions.github.io/2016/11/28/H5实现APP原生特效探究/"></div>
+    <div class="ds-thread" data-thread-key="2016/11/28/CSS 3D实现虚拟全景探究/" data-title="CSS 3D实现虚拟全景探究" data-url="https://motionvisions.github.io/2016/11/28/CSS 3D实现虚拟全景探究/"></div>
 <!-- 多说评论区 end -->
 <!-- 多说热评文章 start -->
  <!--   <div class="ds-top-threads" data-range="daily" data-num-items="5"></div> -->
@@ -385,10 +401,10 @@ ga('send', 'pageview');
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2016/11/28/H5实现APP原生特效探究/" class="thumbnail">
+                            <a href="/2016/11/28/CSS 3D实现虚拟全景探究/" class="thumbnail">
     
     
-        <span style="background-image:url(http://haitao.nos.netease.com/80e05e46155b42f492661b610f8a25b9.jpg)" alt="H5实现APP原生特效探究" class="thumbnail-image"></span>
+        <span style="background-image:url(http://haitao.nos.netease.com/ecd06b4b7add4a2a927fea9cd318886f.jpg)" alt="CSS 3D实现虚拟全景探究" class="thumbnail-image"></span>
     
     
 </a>
@@ -397,7 +413,7 @@ ga('send', 'pageview');
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/技术文章/">技术文章</a></p>
-                            <p class="item-title"><a href="/2016/11/28/H5实现APP原生特效探究/" class="title">H5实现APP原生特效探究</a></p>
+                            <p class="item-title"><a href="/2016/11/28/CSS 3D实现虚拟全景探究/" class="title">CSS 3D实现虚拟全景探究</a></p>
                             <p class="item-date"><time datetime="2016-11-27T16:00:00.000Z" itemprop="datePublished">2016-11-28</time></p>
                         </div>
                     </li>
@@ -431,7 +447,7 @@ ga('send', 'pageview');
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ADFA-tags-tags/">ADFA tags tags</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PullDown/">PullDown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Touch/">Touch</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/">canvas</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/原生特效/">原生特效</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/3D/">3D</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ADFA-tags-tags/">ADFA tags tags</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/">canvas</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -441,7 +457,7 @@ ga('send', 'pageview');
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/ADFA-tags-tags/" style="font-size: 10px;">ADFA tags tags</a> <a href="/tags/PullDown/" style="font-size: 10px;">PullDown</a> <a href="/tags/Touch/" style="font-size: 10px;">Touch</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/原生特效/" style="font-size: 10px;">原生特效</a>
+            <a href="/tags/3D/" style="font-size: 10px;">3D</a> <a href="/tags/ADFA-tags-tags/" style="font-size: 10px;">ADFA tags tags</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a>
         </div>
     </div>
 
