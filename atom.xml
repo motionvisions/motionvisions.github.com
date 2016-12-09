@@ -130,7 +130,7 @@
     <link href="https://motionvisions.github.io/2016/11/28/CSS%203D%E5%AE%9E%E7%8E%B0%E8%99%9A%E6%8B%9F%E5%85%A8%E6%99%AF%E6%8E%A2%E7%A9%B6/"/>
     <id>https://motionvisions.github.io/2016/11/28/CSS 3D实现虚拟全景探究/</id>
     <published>2016-11-27T16:00:00.000Z</published>
-    <updated>2016-12-09T07:49:15.000Z</updated>
+    <updated>2016-12-09T09:42:42.000Z</updated>
     
     <content type="html"><![CDATA[<p><div style="width:80%;margin:0 auto;"><img src="http://haitao.nos.netease.com/ecd06b4b7add4a2a927fea9cd318886f.jpg" alt="" title="文章缩略图"><br></div><br>随着移动设备的发展，手机浏览器的兼容性已经变得比较令人满意，绝大部分CSS3属性和HTML5 API已经被移动浏览器支持。今年淘宝造物节的H5活动宣传页实现的3D虚拟全景令人感到惊艳。本文就是来探究如何利用CSS3 和 HTML5 API来实现一个基于浏览器的虚拟全景。</p>
 <h2 id="几个例子"><a href="#几个例子" class="headerlink" title="几个例子"></a>几个例子</h2><p>话不多说，先上例子。</p>
@@ -140,7 +140,7 @@
 </ol>
 <h2 id="核心技术"><a href="#核心技术" class="headerlink" title="核心技术"></a>核心技术</h2><p>主要的核心技术包括CSS3几个有关2D/3D变换的属性和HTML5设备陀螺仪API。</p>
 <h3 id="2D平面上的变换"><a href="#2D平面上的变换" class="headerlink" title="2D平面上的变换"></a>2D平面上的变换</h3><p>在2D平面实现伪3D效果主要利用到了<strong>transform</strong>中的<strong>rotateX, rotateY, rotateZ</strong>三个属性。通过这三个属性可以模拟人眼在与屏幕平行位置移动时观察屏幕内物体的视觉效果。<br>假设屏幕里有一个正方形。那么可以通过<strong>rotateX</strong>来模拟人上下移动时观察物体的效果；通过<strong>rotateY</strong>来模拟人左右移动时观察物体的效果；通过<strong>rotateZ</strong>来模拟人在倾斜时（比如扭头）观察物体的效果.具体效果如下所示。<br><img src="http://haitao.nos.netease.com/3c9cf180cf1d46ecaede900e67c40f7f.jpg" alt="" title="文章缩略图"></p>
-<iframe id="cp_embed_LVMMGZ" src="http://codepen.io/ccfe/pen/WoyqwQ" scrolling="no" frameborder="0" height="268" allowtransparency="true" allowfullscreen="true" name="CodePen Embed" title="CodePen Embed 6" class="cp_embed_iframe " style="width: 100%; overflow: hidden;"></iframe>
+<iframe id="cp_embed_LVMMGZ" src="//codepen.io/ccfe/pen/WoyqwQ" scrolling="no" frameborder="0" height="268" allowtransparency="true" allowfullscreen="true" name="CodePen Embed" title="CodePen Embed 6" class="cp_embed_iframe " style="width: 100%; overflow: hidden;"></iframe>
 
 ]]></content>
     
