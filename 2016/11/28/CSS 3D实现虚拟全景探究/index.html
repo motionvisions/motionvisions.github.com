@@ -23,7 +23,7 @@
 第一个就是2016年的淘宝造物节。
 第二个是腾讯在2014年世界互联网大会上制作的公司介绍页。">
 <meta property="og:image" content="http://haitao.nos.netease.com/ecd06b4b7add4a2a927fea9cd318886f.jpg">
-<meta property="og:updated_time" content="2016-12-09T09:49:38.000Z">
+<meta property="og:updated_time" content="2016-12-11T09:57:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS 3D实现虚拟全景探究">
 <meta name="twitter:description" content="随着移动设备的发展，手机浏览器的兼容性已经变得比较令人满意，绝大部分CSS3属性和HTML5 API已经被移动浏览器支持。今年淘宝造物节的H5活动宣传页实现的3D虚拟全景令人感到惊艳。本文就是来探究如何利用CSS3 和 HTML5 API来实现一个基于浏览器的虚拟全景。
@@ -205,7 +205,7 @@ ga('send', 'pageview');
         <div class="article-entry" itemprop="arti  cleBody">
             <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#几个例子"><span class="toc-number">1.</span> <span class="toc-text">几个例子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#核心技术"><span class="toc-number">2.</span> <span class="toc-text">核心技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2D平面上的变换"><span class="toc-number">2.1.</span> <span class="toc-text">2D平面上的变换</span></a></li></ol></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#几个例子"><span class="toc-number">1.</span> <span class="toc-text">几个例子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#核心技术"><span class="toc-number">2.</span> <span class="toc-text">核心技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#模拟视距的变化-translateZ-perspective"><span class="toc-number">2.1.</span> <span class="toc-text">模拟视距的变化(translateZ, perspective)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模拟视角的变化-rotateX-rotateY-rotateZ"><span class="toc-number">2.2.</span> <span class="toc-text">模拟视角的变化(rotateX, rotateY, rotateZ)</span></a></li></ol></li></ol>
                 <span title="关闭目录" class="sidebar-toggle" id="sidebar-toggle"><i class='fa fa-caret-left'></i></span>
                 <span title="展开目录" class="sidebar-toggle-close" id="sidebar-toggle-close"><i class='fa fa-caret-right'></i></span>
             </div>
@@ -215,8 +215,13 @@ ga('send', 'pageview');
 <li>第一个就是2016年的<a href="http://show.im20.com.cn/zwj/" title="1. 淘宝造物节" target="_blank" rel="external">淘宝造物节</a>。</li>
 <li>第二个是腾讯在2014年世界互联网大会上制作的<a href="http://wic.tencent.com/" title="公司介绍页" target="_blank" rel="external">公司介绍页</a>。</li>
 </ol>
-<h2 id="核心技术"><a href="#核心技术" class="headerlink" title="核心技术"></a>核心技术</h2><p>主要的核心技术包括CSS3几个有关2D/3D变换的属性和HTML5设备陀螺仪API。</p>
-<h3 id="2D平面上的变换"><a href="#2D平面上的变换" class="headerlink" title="2D平面上的变换"></a>2D平面上的变换</h3><p>在2D平面实现伪3D效果主要利用到了<strong>transform</strong>中的<strong>rotateX, rotateY, rotateZ</strong>三个属性。通过这三个属性可以模拟人眼在与屏幕平行位置移动时观察屏幕内物体的视觉效果。<br>假设屏幕里有一个正方形。那么可以通过<strong>rotateX</strong>来模拟人上下移动时观察物体的效果；通过<strong>rotateY</strong>来模拟人左右移动时观察物体的效果；通过<strong>rotateZ</strong>来模拟人在倾斜时（比如扭头）观察物体的效果.具体效果如下所示。<br><img src="http://haitao.nos.netease.com/3c9cf180cf1d46ecaede900e67c40f7f.jpg" alt="" title="文章缩略图"></p>
+<h2 id="核心技术"><a href="#核心技术" class="headerlink" title="核心技术"></a>核心技术</h2><p>主要的核心技术包括CSS3几个有关2D/3D transform的属性和HTML5设备陀螺仪API。</p>
+<h3 id="模拟视距的变化-translateZ-perspective"><a href="#模拟视距的变化-translateZ-perspective" class="headerlink" title="模拟视距的变化(translateZ, perspective)"></a>模拟视距的变化(<strong>translateZ, perspective</strong>)</h3><ul>
+<li><strong>translateZ</strong>是指物体距离屏幕前后的距离。默认值为0，即物体就在屏幕所在平面上。</li>
+<li><strong>perspective</strong>是指人眼距离屏幕的距离，同时是否设置<strong>perspective</strong>的值也是浏览器用来判断是否开启3D视角：也就是说<strong>CSS3 transform</strong>由<strong>2D transform </strong>变成了<strong>3D transform</strong>。默认值为none或者0，即不开启3D视角。</li>
+<li><strong>perspective-origin</strong>是指视线直视屏幕上的点所在的位置。默认值为50% 50%，即观察点在屏幕中央。</li>
+</ul>
+<h3 id="模拟视角的变化-rotateX-rotateY-rotateZ"><a href="#模拟视角的变化-rotateX-rotateY-rotateZ" class="headerlink" title="模拟视角的变化(rotateX, rotateY, rotateZ)"></a>模拟视角的变化(<strong>rotateX, rotateY, rotateZ</strong>)</h3><p>模拟人视角变化主要利用到了<strong>transform</strong>中的<strong>rotateX, rotateY, rotateZ</strong>三个属性。通过这三个属性可以模拟人眼在与屏幕平行位置移动时观察屏幕内物体的视觉效果。<br>假设屏幕里有一个正方形。那么可以通过<strong>rotateX</strong>来模拟人上下移动时观察物体的效果；通过<strong>rotateY</strong>来模拟人左右移动时观察物体的效果；通过<strong>rotateZ</strong>来模拟人在倾斜时（比如扭头）观察物体的效果.具体效果如下所示。<br><img src="http://haitao.nos.netease.com/3c9cf180cf1d46ecaede900e67c40f7f.jpg" alt="" title="文章缩略图"></p>
 <iframe height="265" scrolling="no" title="WoyqwQ" src="//codepen.io/ccfe/embed/WoyqwQ/?height=265&theme-id=0&default-tab=css,result&embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="http://codepen.io/ccfe/pen/WoyqwQ/" target="_blank" rel="external">WoyqwQ</a> by ccfe (<a href="http://codepen.io/ccfe" target="_blank" rel="external">@ccfe</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.<br></iframe>
 
         </div>
@@ -225,7 +230,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="https://motionvisions.github.io/2016/11/28/CSS 3D实现虚拟全景探究/" data-id="ciwhm2yan0000aqkre82c26ud" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://motionvisions.github.io/2016/11/28/CSS 3D实现虚拟全景探究/" data-id="ciwhffegf000hh3krgwpb86w5" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
