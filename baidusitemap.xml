@@ -4,8 +4,29 @@
 
     
   <url>
+    <loc>https://motionvisions.github.io/2016/12/12/Hilo%20%E7%9B%B8%E5%85%B3%E7%AE%80%E4%BB%8B/</loc>
+    <lastmod>2016-12-14T08:34:38.000Z</lastmod>
+    <data>
+        <display>
+        <title>Hilo 阿里H5游戏引擎简介</title>
+        <pubTime>2016-12-11T16:00:00.000Z</pubTime>
+        
+        <tag>动画框架</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术文章" url="https://motionvisions.github.io/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
     <loc>https://motionvisions.github.io/2016/11/28/CSS%203D%E5%AE%9E%E7%8E%B0%E8%99%9A%E6%8B%9F%E5%85%A8%E6%99%AF%E6%8E%A2%E7%A9%B6/</loc>
-    <lastmod>2016-12-11T09:57:53.000Z</lastmod>
+    <lastmod>2016-12-14T08:29:13.000Z</lastmod>
     <data>
         <display>
         <title>CSS 3D实现虚拟全景探究</title>
@@ -24,6 +45,8 @@
     </data>
     </url>
 
+    
+    
     
   <url>
     <loc>https://motionvisions.github.io/2016/12/02/Canvas%E4%B8%8A%E7%BB%98%E5%88%B6%E5%8A%A8%E7%94%BB/</loc>

@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Hilo 阿里H5游戏引擎简介 | 考拉动效</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="动画框架" />
+    
+    <meta name="description" content="Hilo 阿里H5游戏引擎简介最近找了一些与动画相关的资料，希望以后WAP的H5活动可以做一些比较炫酷的动画。目前找到了3个可供选择的动画库，下面重点介绍一些第一个Hilo。
+
+Hilo 阿里开源动画框架 （有API, 应该阿里的开发者会长期维护，就是例子不多，支持多种渲染方式支持Canvas,Webgl,Dom）
+
+Agile 一个叫A-jie的人写的 （没有API，但是看源码也很容易上手，且例">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hilo 阿里H5游戏引擎简介">
+<meta property="og:url" content="https://motionvisions.github.io/2016/12/12/Hilo 相关简介/index.html">
+<meta property="og:site_name" content="考拉动效">
+<meta property="og:description" content="Hilo 阿里H5游戏引擎简介最近找了一些与动画相关的资料，希望以后WAP的H5活动可以做一些比较炫酷的动画。目前找到了3个可供选择的动画库，下面重点介绍一些第一个Hilo。
+
+Hilo 阿里开源动画框架 （有API, 应该阿里的开发者会长期维护，就是例子不多，支持多种渲染方式支持Canvas,Webgl,Dom）
+
+Agile 一个叫A-jie的人写的 （没有API，但是看源码也很容易上手，且例">
+<meta property="og:image" content="https://camo.githubusercontent.com/3fa3b6d70a06f6e2390ba3b3f29fdd1e448ec085/687474703a2f2f696d67312e746263646e2e636e2f4c312f3436312f312f343734303365323034343963396431313630616434383138373962303263643936663239393864392e706e67">
+<meta property="og:updated_time" content="2016-12-14T08:34:38.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hilo 阿里H5游戏引擎简介">
+<meta name="twitter:description" content="Hilo 阿里H5游戏引擎简介最近找了一些与动画相关的资料，希望以后WAP的H5活动可以做一些比较炫酷的动画。目前找到了3个可供选择的动画库，下面重点介绍一些第一个Hilo。
+
+Hilo 阿里开源动画框架 （有API, 应该阿里的开发者会长期维护，就是例子不多，支持多种渲染方式支持Canvas,Webgl,Dom）
+
+Agile 一个叫A-jie的人写的 （没有API，但是看源码也很容易上手，且例">
+<meta name="twitter:image" content="https://camo.githubusercontent.com/3fa3b6d70a06f6e2390ba3b3f29fdd1e448ec085/687474703a2f2f696d67312e746263646e2e636e2f4c312f3436312f312f343734303365323034343963396431313630616434383138373962303263643936663239393864392e706e67">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="考拉动效" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/favicon.ico" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/duoshuo.css">
+
+    <script src="/libs/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-66666666-6', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="http://www.kaola.com" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">考拉前端团队 KAOLA-FED</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">首页</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/技术文章/">技术文章</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/动效展示/">动效展示</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/工具/">工具</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about">关于我们</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner container-inner-article">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/技术文章/">技术文章</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-Hilo 相关简介" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Hilo 阿里H5游戏引擎简介
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-subtitle">
+                作者：<b>annyran</b> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 发表于：<a href="/2016/12/12/Hilo 相关简介/" class="article-date">
+    <time datetime="2016-12-11T16:00:00.000Z" itemprop="datePublished">2016-12-12</time>
+</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                
+    <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动画框架/">动画框架</a></li></ul>
+
+                <span class="head-plus">
+                    <i class="fa fa-user"></i>
+                <span id="busuanzi_value_page_pv">
+                    <i class="fa fa-spinner fa-spin"></i>
+                </span>次访问   </span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                <span class="head-plus">
+                    <i class="fa fa-comments"></i>
+                <span class="ds-thread-count" data-thread-key="2016/12/12/Hilo 相关简介/">
+                    <i class="fa fa-spinner fa-spin"></i></span>
+                </span>
+            </div>
+        
+        
+        <div class="article-entry" itemprop="arti  cleBody">
+            <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Hilo-阿里H5游戏引擎简介"><span class="toc-number">1.</span> <span class="toc-text">Hilo 阿里H5游戏引擎简介</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Hilo"><span class="toc-number">1.1.</span> <span class="toc-text">Hilo</span></a></li></ol></li></ol>
+                <span title="关闭目录" class="sidebar-toggle" id="sidebar-toggle"><i class='fa fa-caret-left'></i></span>
+                <span title="展开目录" class="sidebar-toggle-close" id="sidebar-toggle-close"><i class='fa fa-caret-right'></i></span>
+            </div>
+            <h3 id="Hilo-阿里H5游戏引擎简介"><a href="#Hilo-阿里H5游戏引擎简介" class="headerlink" title="Hilo 阿里H5游戏引擎简介"></a>Hilo 阿里H5游戏引擎简介</h3><p>最近找了一些与动画相关的资料，希望以后WAP的H5活动可以做一些比较炫酷的动画。目前找到了3个可供选择的动画库，下面重点介绍一些第一个Hilo。</p>
+<ul>
+<li><p>Hilo 阿里开源动画框架 （有API, 应该阿里的开发者会长期维护，就是例子不多，支持多种渲染方式支持Canvas,Webgl,Dom）</p>
+</li>
+<li><p>Agile 一个叫A-jie的人写的 （没有API，但是看源码也很容易上手，且例子多，不支持多种渲染方式，设计初衷就是为了不用Canvas）</p>
+</li>
+<li><p>Collie（Adobe出的一个动画框架，有很多例子，有api, 还没来得及使用）</p>
+<p>​</p>
+</li>
+</ul>
+<p>下面简单介绍一下，各个库:</p>
+<h4 id="Hilo"><a href="#Hilo" class="headerlink" title="Hilo"></a>Hilo</h4><blockquote>
+<p><a href="https://github.com/hiloteam/Hilo" target="_blank" rel="external">Hilo</a>，一套HTML5跨终端的互动游戏解决方案。Hilo支持了多届淘宝&amp;天猫狂欢城等双十一大型和日常营销活动。内核极简，提供包括DOM，Canvas，Flash，WebGL等多种渲染方案，满足全终端和性能要求。支持多种模块范式的包装版本以及开放的扩展方式，方便接入和扩展。提供对2D物理，骨骼动画的内建和扩展支持。另外，Hilo提供丰富的周边工具及开发案例。目前，Hilo已经开源，并入到Hilo Team中。开源地址 <a href="https://github.com/hiloteam/Hilo" target="_blank" rel="external">https://github.com/hiloteam/Hilo</a> （欢迎Star）</p>
+</blockquote>
+<p>Hilo采用极简的内核。核心模块包括基础类工具（Class），事件系统（EventMixin），渲染（Render）和可视对象（View），如下图所示。</p>
+<p><img src="https://camo.githubusercontent.com/3fa3b6d70a06f6e2390ba3b3f29fdd1e448ec085/687474703a2f2f696d67312e746263646e2e636e2f4c312f3436312f312f343734303365323034343963396431313630616434383138373962303263643936663239393864392e706e67" alt="Hilo 结构图"></p>
+<p>Hilo 最大的特点在于它的多种渲染方式,它提供DOM，Canvas，Flash，WebGL等多种渲染方案，可以做到跨全端，高性能的要求,之前天猫双11的喵喵舞、双11互动城、红包雨都是用它实现的。在Hilo官网的例子里面有个flappybird 游戏实现的小案例，代码很少可以看下，感觉很赞。但是在实现一些想要的动画效果时，自己还是觉得Canvas动画比较难控制，因为你画的元素在element里面看不到。我用renderType为dom的方式写了个下面的小例子供大家上手参考：（可以先大致看一下Hilo 的API）</p>
+<p><a href="http://codepen.io/anon/pen/KNxqGM?editors=1010" target="_blank" rel="external">Codepen 查看地址</a></p>
+<p>大致讲一下这个小例子用到的一些方法：</p>
+<ul>
+<li><p>重点提下Hilo的View类</p>
+<blockquote>
+<p>Hilo的可视对象的基础类是View类。View 在表现上就是一个个矩形，无论图片还是文字都可以使用一个最小的矩形包裹。在这些可视对象上做平移，旋转，缩放，透明处理等操作就可以实现普通动画的绝大部分。View实现了可视对象展示的基本问题。</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="https://camo.githubusercontent.com/64e91e6c395b071f69392399ab7dbeef69dc5966/687474703a2f2f696d67322e746263646e2e636e2f4c312f3436312f312f653764343666653363373564633732653438396565323937616566646264316539336363313939622e706e67" alt=""></p>
+<p><img src="https://camo.githubusercontent.com/4e8559ac1d2b5defcf404854fa173cb407f5c286/687474703a2f2f696d67312e746263646e2e636e2f4c312f3436312f312f656335626631633135613833303462653337306533393332653565396237613932393762306462382e706e67" alt=""><br>类似地，根据不同View的其他展示特性，Hilo扩展出舞台Stage，位图Bitmap，画图Graphic，精灵动画Sprite等类型。</p>
+<ul>
+<li><p>补充几点，我个人觉得使用上不是特别方便的几点</p>
+<ul>
+<li><p>我们所有可视的元素基类都是View, 这个View的配置项里面有几个非常重要的与定位相关的信息。在dom渲染模式下我们的元素position都是absolute的，我们位置信息里的x,y 指的是transform里面的x与y. 配置信息里面有pivotX,pivotY指的是transform-origin的x与y。</p>
+</li>
+<li><p>pivotX与pivotY 的值不支持百分数，且默认并不在元素的中心点的位置，而是在(0,0)的位置，这也意味着我们设置元素的pivotX,pivotY 为50% 50% 时，需要去根据这个元素的宽度和高度进行计算。（对于上面提到的这点：Agile这个框架就方便很多）</p>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">main</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> resources = [</div><div class="line">            &#123;<span class="attr">id</span>:<span class="string">'car1'</span>, <span class="attr">src</span>:<span class="string">'images/car1.png'</span>&#125;,</div><div class="line">            &#123;<span class="attr">id</span>:<span class="string">'car2'</span>, <span class="attr">src</span>:<span class="string">'images/car2.png'</span>&#125;,</div><div class="line">            &#123;<span class="attr">id</span>:<span class="string">'tree1'</span>, <span class="attr">src</span>:<span class="string">'images/tree1.png'</span>&#125;,</div><div class="line">            &#123;<span class="attr">id</span>:<span class="string">'tree2'</span>, <span class="attr">src</span>:<span class="string">'images/tree2.png'</span>&#125;,</div><div class="line">            &#123;<span class="attr">id</span>:<span class="string">'wheel'</span>, <span class="attr">src</span>:<span class="string">'images/wheel.png'</span>&#125;</div><div class="line">        ];</div><div class="line"></div><div class="line">        loadResources(resources, init);</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadResources</span>(<span class="params">resources, cb</span>)</span>&#123;</div><div class="line">  		<span class="comment">//使用Hilo的LoadQueue类去加载我们要使用的资源</span></div><div class="line">        queueRes = <span class="keyword">new</span> Hilo.LoadQueue();</div><div class="line">        queueRes.add(resources);</div><div class="line">        queueRes.on(<span class="string">'complete'</span>, cb);</div><div class="line">        queueRes.start();</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> gameContainer = <span class="built_in">document</span>.getElementById(<span class="string">"game-container"</span>),</div><div class="line">            containerWidth = <span class="built_in">window</span>.innerWidth,</div><div class="line">            containerHeight = <span class="built_in">window</span>.innerHeight;</div><div class="line"></div><div class="line">        <span class="comment">//init stage</span></div><div class="line">   		<span class="comment">//初始化我们的舞台容器，我们所有的View类元素都会放入这个容器</span></div><div class="line">        stage = <span class="keyword">new</span> Hilo.Stage(&#123;</div><div class="line">            <span class="attr">renderType</span>:<span class="string">'dom'</span>,</div><div class="line">            <span class="attr">container</span>: gameContainer,</div><div class="line">            <span class="attr">width</span>: containerWidth,</div><div class="line">            <span class="attr">height</span>: containerHeight</div><div class="line">        &#125;);</div><div class="line"></div><div class="line"></div><div class="line">        <span class="comment">//绘制road并将它添加到舞台容器</span></div><div class="line">        <span class="keyword">var</span> road = <span class="keyword">new</span> Hilo.View(&#123;</div><div class="line">           <span class="attr">renderType</span>:<span class="string">'dom'</span>,</div><div class="line">           <span class="attr">width</span>:containerWidth,</div><div class="line">           <span class="attr">height</span>:<span class="number">360</span>,</div><div class="line">           <span class="attr">background</span>:<span class="string">'rgb(7,51,105)'</span>,</div><div class="line">           <span class="attr">y</span>:containerHeight - <span class="number">360</span></div><div class="line">        &#125;).addTo(stage);</div><div class="line"></div><div class="line"></div><div class="line">        <span class="comment">//绘制car</span></div><div class="line">        <span class="comment">//drawCar(type,carX, carHeight, containerHeight)</span></div><div class="line">        drawCar(<span class="number">1</span>, <span class="number">50</span>, <span class="number">144</span>, containerHeight, <span class="number">360</span>);</div><div class="line">        drawCar(<span class="number">2</span>, <span class="number">350</span>, <span class="number">144</span>, containerHeight, <span class="number">360</span>);</div><div class="line"></div><div class="line">        <span class="comment">//绘制树</span></div><div class="line">        addTree(containerHeight, containerWidth, <span class="number">360</span>);</div><div class="line"></div><div class="line"></div><div class="line">        <span class="comment">//就像上篇Canvas动画谈到的那样，我们所有的动画都是通过不断地计时去做一些操作</span></div><div class="line">        <span class="keyword">var</span> ticker = <span class="keyword">new</span> Hilo.Ticker(<span class="number">20</span>);</div><div class="line">        ticker.addTick(stage);</div><div class="line">        ticker.addTick(Hilo.Tween);</div><div class="line">        ticker.start();</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">addTree</span>(<span class="params">containerHeight, containerWidth, roadHeight</span>) </span>&#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</div><div class="line">            <span class="keyword">var</span> index = <span class="built_in">Math</span>.round(<span class="built_in">Math</span>.random() * <span class="number">2</span>),</div><div class="line">                fx,tx;</div><div class="line">            <span class="keyword">if</span>(index == <span class="number">0</span>) index =<span class="number">2</span>;</div><div class="line">            <span class="keyword">var</span> tree = <span class="keyword">new</span> Hilo.Bitmap(&#123;</div><div class="line">                <span class="comment">//获取资源队列中的对应资源</span></div><div class="line">                image: queueRes.get(<span class="string">'tree'</span>+index).content</div><div class="line">            &#125;);</div><div class="line"></div><div class="line"></div><div class="line">            tree.x = <span class="built_in">Math</span>.random()*containerWidth + tree.width/<span class="number">2</span>;</div><div class="line">            tree.scaleX = tree.scaleY = <span class="built_in">Math</span>.random()*<span class="number">.7</span>+<span class="number">.3</span>;</div><div class="line">            tree.y = containerHeight - roadHeight - (tree.height*tree.scaleY);</div><div class="line">            tree.addTo(stage);</div><div class="line">            interlude(tree);</div><div class="line"></div><div class="line">            <span class="function"><span class="keyword">function</span> <span class="title">interlude</span>(<span class="params">tree</span>)</span>&#123;</div><div class="line">                <span class="keyword">var</span> fx = <span class="built_in">Math</span>.random() * containerWidth + tree.width / <span class="number">2</span>;</div><div class="line">                <span class="keyword">var</span> tx = -fx + <span class="built_in">Math</span>.max(containerWidth * <span class="number">2</span>, containerWidth + tree.width / <span class="number">2</span> + fx);</div><div class="line">                tree.scaleX = tree.scaleY = <span class="built_in">Math</span>.random()*<span class="number">.7</span>+<span class="number">.3</span>;</div><div class="line">                tree.y = containerHeight - roadHeight - (tree.height*tree.scaleY);</div><div class="line">                Hilo.Tween.fromTo(</div><div class="line">                        tree, &#123;<span class="attr">x</span>: -fx&#125;, &#123;<span class="attr">x</span>: tx&#125;,</div><div class="line">                        &#123;<span class="attr">duration</span>: <span class="number">3000</span>, <span class="attr">ease</span>: Hilo.Ease.Linear.EaseNone, <span class="attr">onComplete</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">                            interlude(tree);</div><div class="line">                        &#125;&#125;</div><div class="line">                );</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//绘制汽车</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">drawCar</span>(<span class="params">type,carX, carHeight, containerHeight, roadHeight</span>)</span>&#123;</div><div class="line">        <span class="comment">//wheel图片的相关信息</span></div><div class="line">        <span class="keyword">var</span> wheel = &#123;</div><div class="line">            <span class="attr">width</span>: <span class="number">53</span>,<span class="attr">height</span>:<span class="number">53</span></div><div class="line">        &#125;;</div><div class="line"></div><div class="line"></div><div class="line">        <span class="comment">//先绘制carContainer 作为car的容器，然后向carContainer里面添加carBody和carWheel</span></div><div class="line">        <span class="keyword">if</span>(type == <span class="number">1</span>)&#123;</div><div class="line">            <span class="keyword">var</span> carContainer = <span class="keyword">new</span> Hilo.Container(&#123;</div><div class="line">                <span class="attr">x</span>: carX+<span class="number">100</span>,</div><div class="line">                <span class="attr">y</span>: containerHeight - roadHeight - carHeight - <span class="number">25</span></div><div class="line">            &#125;);</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            <span class="keyword">var</span> carContainer = <span class="keyword">new</span> Hilo.Container(&#123;</div><div class="line">                <span class="attr">x</span>: carX,</div><div class="line">                <span class="attr">y</span>: containerHeight - roadHeight - carHeight - <span class="number">25</span></div><div class="line">            &#125;);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">//绘制车身</span></div><div class="line">        <span class="keyword">var</span> carBody = <span class="keyword">new</span> Hilo.Bitmap(&#123;</div><div class="line">            <span class="attr">image</span>: queueRes.get(<span class="string">'car'</span>+type).content,</div><div class="line">            <span class="attr">rect</span>:[<span class="number">0</span>,<span class="number">0</span>,<span class="number">257</span>,<span class="number">144</span>]</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">        <span class="comment">//绘制wheel_左边</span></div><div class="line">        <span class="keyword">var</span> wheel_l = <span class="keyword">new</span> Hilo.Bitmap(&#123;</div><div class="line">            <span class="attr">image</span>:  queueRes.get(<span class="string">'wheel'</span>).content,</div><div class="line">            <span class="attr">x</span>: <span class="number">30</span> + wheel.width/<span class="number">2</span>,</div><div class="line">            <span class="attr">y</span>: carHeight,</div><div class="line">            <span class="attr">pivotX</span>: wheel.width/<span class="number">2</span>,</div><div class="line">            <span class="attr">pivotY</span>: wheel.height/<span class="number">2</span></div><div class="line">        &#125;);</div><div class="line"></div><div class="line">        <span class="comment">//绘制wheel_右边</span></div><div class="line">        <span class="keyword">var</span> wheel_r = <span class="keyword">new</span> Hilo.Bitmap(&#123;</div><div class="line">            <span class="attr">image</span>:  queueRes.get(<span class="string">'wheel'</span>).content,</div><div class="line">            <span class="attr">x</span>: <span class="number">175</span>+ wheel.width/<span class="number">2</span>,</div><div class="line">            <span class="attr">y</span>: carHeight,</div><div class="line">            <span class="attr">pivotX</span>: wheel.width/<span class="number">2</span>,</div><div class="line">            <span class="attr">pivotY</span>: wheel.height/<span class="number">2</span></div><div class="line">        &#125;);</div><div class="line"></div><div class="line">        <span class="comment">//移动wheel_l</span></div><div class="line">        <span class="comment">//Tween.to(target, toProps, params) Tween类型动画</span></div><div class="line">        Hilo.Tween.to(</div><div class="line">                wheel_l,</div><div class="line">                &#123;</div><div class="line">                    <span class="attr">rotation</span>: wheel_l.rotation - <span class="number">360</span></div><div class="line">                &#125;,</div><div class="line">                &#123;</div><div class="line">                    <span class="attr">duration</span>:<span class="number">200</span>,</div><div class="line">                    <span class="attr">loop</span>:<span class="literal">true</span>,</div><div class="line">                    <span class="attr">reverse</span>:<span class="literal">false</span></div><div class="line">                &#125;</div><div class="line">        );</div><div class="line">        Hilo.Tween.to(</div><div class="line">                wheel_r,</div><div class="line">                &#123;</div><div class="line">                    <span class="attr">rotation</span>: wheel_r.rotation - <span class="number">360</span></div><div class="line">                &#125;,</div><div class="line">                &#123;</div><div class="line">                    <span class="attr">duration</span>:<span class="number">200</span>,</div><div class="line">                    <span class="attr">loop</span>:<span class="literal">true</span>,</div><div class="line">                    <span class="attr">reverse</span>:<span class="literal">false</span></div><div class="line">                &#125;</div><div class="line">        );</div><div class="line"></div><div class="line">        <span class="comment">//carBody的上下移动</span></div><div class="line">        Hilo.Tween.to(</div><div class="line">                carBody,</div><div class="line">                &#123;</div><div class="line">                    <span class="attr">y</span>:carBody.y + <span class="number">6</span></div><div class="line">                &#125;,</div><div class="line">                &#123;</div><div class="line">                    <span class="attr">duration</span>: <span class="number">600</span>,</div><div class="line">                    <span class="attr">loop</span>: <span class="literal">true</span>,</div><div class="line">                    <span class="attr">reverse</span>: <span class="literal">true</span></div><div class="line">                &#125;</div><div class="line">        );</div><div class="line"></div><div class="line">        <span class="comment">//CarContainer的上下移动</span></div><div class="line">        <span class="keyword">if</span>(type == <span class="number">1</span>)&#123;</div><div class="line">            Hilo.Tween.to(</div><div class="line">                    carContainer,</div><div class="line">                    &#123;</div><div class="line">                        <span class="attr">x</span>: carContainer.x + <span class="number">100</span></div><div class="line">                    &#125;,</div><div class="line">                    &#123;</div><div class="line">                        <span class="attr">duration</span>: <span class="number">500</span>,</div><div class="line">                        <span class="attr">loop</span>:<span class="literal">true</span>,</div><div class="line">                        <span class="attr">reverse</span>:<span class="literal">true</span>,</div><div class="line">                        <span class="attr">ease</span>:Hilo.Ease.Linear.EaseNone</div><div class="line">                    &#125;</div><div class="line">            );</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            Hilo.Tween.to(</div><div class="line">                    carContainer,</div><div class="line">                    &#123;</div><div class="line">                        <span class="attr">x</span>: carContainer.x</div><div class="line">                    &#125;,</div><div class="line">                    &#123;</div><div class="line">                        <span class="attr">delay</span>: <span class="number">200</span>,</div><div class="line">                        <span class="attr">duration</span>: <span class="number">500</span>,</div><div class="line">                        <span class="attr">loop</span>:<span class="literal">true</span>,</div><div class="line">                        <span class="attr">reverse</span>:<span class="literal">true</span>,</div><div class="line">                        <span class="attr">ease</span>:Hilo.Ease.Linear.EaseNone</div><div class="line">                    &#125;</div><div class="line">            );</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        carContainer.addChild(carBody);</div><div class="line">        carContainer.addChild(wheel_l);</div><div class="line">        carContainer.addChild(wheel_r);</div><div class="line">        carContainer.addTo(stage);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+
+        </div>
+        <footer class="article-footer" style="display:none;">
+            
+
+
+
+    <a data-url="https://motionvisions.github.io/2016/12/12/Hilo 相关简介/" data-id="ciwoparko0000zykrzshfv6lz" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+<!-- 多说最近访问 start -->
+<div class="ds-recent-visitors"
+    data-num-items="30"
+    data-avatar-size="30"
+    id="ds-recent-visitors">
+</div>
+<!-- 多说评论区 start -->
+    <div class="ds-thread" data-thread-key="2016/12/12/Hilo 相关简介/" data-title="Hilo 阿里H5游戏引擎简介" data-url="https://motionvisions.github.io/2016/12/12/Hilo 相关简介/"></div>
+<!-- 多说评论区 end -->
+<!-- 多说热评文章 start -->
+ <!--   <div class="ds-top-threads" data-range="daily" data-num-items="5"></div> -->
+<!-- 多说热评文章 end -->
+
+    
+    </section>
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>关注我们:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="http://kaolafed.github.io/" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/atom.xml" target="_blank">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2016/12/07/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">Hello World</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/12/12/Hilo 相关简介/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://camo.githubusercontent.com/3fa3b6d70a06f6e2390ba3b3f29fdd1e448ec085/687474703a2f2f696d67312e746263646e2e636e2f4c312f3436312f312f343734303365323034343963396431313630616434383138373962303263643936663239393864392e706e67)" alt="Hilo 阿里H5游戏引擎简介" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/技术文章/">技术文章</a></p>
+                            <p class="item-title"><a href="/2016/12/12/Hilo 相关简介/" class="title">Hilo 阿里H5游戏引擎简介</a></p>
+                            <p class="item-date"><time datetime="2016-12-11T16:00:00.000Z" itemprop="datePublished">2016-12-12</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/12/07/hello-world/" class="thumbnail">
+    
+    
+        <span style="background-image:url(//img.alicdn.com/tfs/TB1_ZnHNXXXXXXBXpXXXXXXXXXX-900-500.jpg)" alt="Hello World" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/技术文章/">技术文章</a></p>
+                            <p class="item-title"><a href="/2016/12/07/hello-world/" class="title">Hello World</a></p>
+                            <p class="item-date"><time datetime="2016-12-06T20:20:10.000Z" itemprop="datePublished">2016-12-07</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/12/02/Canvas上绘制动画/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://mdn.mozillademos.org/files/225/Canvas_drawimage.jpg)" alt="Canvas上绘制动画" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/技术文章/">技术文章</a></p>
+                            <p class="item-title"><a href="/2016/12/02/Canvas上绘制动画/" class="title">Canvas上绘制动画</a></p>
+                            <p class="item-date"><time datetime="2016-12-01T16:00:00.000Z" itemprop="datePublished">2016-12-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/11/28/CSS 3D实现虚拟全景探究/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://haitao.nos.netease.com/ecd06b4b7add4a2a927fea9cd318886f.jpg)" alt="CSS 3D实现虚拟全景探究" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/技术文章/">技术文章</a></p>
+                            <p class="item-title"><a href="/2016/11/28/CSS 3D实现虚拟全景探究/" class="title">CSS 3D实现虚拟全景探究</a></p>
+                            <p class="item-date"><time datetime="2016-11-27T16:00:00.000Z" itemprop="datePublished">2016-11-28</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术文章/">技术文章</a><span class="category-list-count">4</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/3D/">3D</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ADFA-tags-tags/">ADFA tags tags</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/">canvas</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动画框架/">动画框架</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/3D/" style="font-size: 10px;">3D</a> <a href="/tags/ADFA-tags-tags/" style="font-size: 10px;">ADFA tags tags</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/动画框架/" style="font-size: 10px;">动画框架</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://www.kaola.com">考拉web站</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://m.kaola.com">考拉mobile站</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <p class="copyright">Copyright&nbsp;©&nbsp;2016 <b>KAOLA FED</b>. All rights reserved.</p>
+            </div>
+            <p class="visitstatus">
+                <span style="display: inline;" id="busuanzi_container_site_uv"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;<span id="busuanzi_value_site_uv" font="微软雅黑" style="color:white"></span></span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<span style="display: inline;" id="busuanzi_container_site_pv"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i>&nbsp;&nbsp;<span id="busuanzi_value_site_pv" font="微软雅黑" style="color:white"></span></span>
+            </p>
+        </div>
+    </div>
+</footer>
+<!-- 百度提交 -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<!-- 文章目录 -->
+<script>
+(function(){
+    var $tocBox = $("#toc");
+    var $toggleCloseBtn = $("#sidebar-toggle");
+    var $toggleOpenBtn = $("#sidebar-toggle-close");
+
+    var $itemHasChild = $("#toc .toc-item:has(> .toc-child)");
+    var $titleHasChild = $itemHasChild && $itemHasChild.children(".toc-link");
+    $itemHasChild && $itemHasChild.prepend("<i class='fa fa-caret-down'></i><i class='fa fa-caret-right'></i>");
+
+    var $iconToFold = $(".toc-item > .fa-caret-down");
+    var $iconToExpand = $(".toc-item > .fa-caret-right");
+    $iconToExpand.addClass("hide");
+
+    $toggleCloseBtn.on("click", function() {
+        var d = $tocBox.width() + 10;
+        $tocBox.animate({
+            left: -d
+        }, 350);
+        $(this).hide();
+        setTimeout(function(){
+            $toggleOpenBtn.show(200);
+        },350);
+    });
+
+    $toggleOpenBtn.on("click", function() {
+        $tocBox.animate({
+            left: 0
+        }, 350);
+        $(this).hide();
+        setTimeout(function(){
+            $toggleCloseBtn.show();
+        },350);
+    });
+
+    $toggleOpenBtn.click(function(){
+        $(this).hide(100);
+        $tocBox.show(600);
+        $toggleCloseBtn.show(600);
+    });
+
+    var clickIcon = function(){
+        $("#toc .toc-item > i").click(function(){
+            $(this).siblings(".toc-child").slideToggle(100);
+            $(this).toggleClass("hide");
+            $(this).siblings("i").toggleClass("hide");
+        })
+    }()
+
+    // 默认展开目录，所以隐藏掉表示“目录已展开”的图标（向下的小三角）
+    var $iconToFold = $(".toc-item > .fa-caret-down");
+    $iconToExpand.addClass("hide");
+    var clickTitle = function(){
+        $titleHasChild.dblclick(function(){
+            $(this).siblings(".toc-child").hide(100);
+            $(this).siblings("i").toggleClass("hide");
+        })
+        // After dblclick enent
+        $titleHasChild.click(function(){
+            var $curentTocChild = $(this).siblings(".toc-child");
+            if ($curentTocChild.is(":hidden")) {
+                $curentTocChild.show(100);
+                $(this).siblings("i").toggleClass("hide");
+            }
+        })
+    }();
+
+    var clickTocTitle = function(){
+        var $iconToExpand = $(".toc-item > .fa-caret-right");
+        var $iconToFold = $(".toc-item > .fa-caret-down");
+        var $subToc = $titleHasChild.next(".toc-child");
+
+        var $tocTitle = $("#toc .toc-title");
+
+        // 当包含多级目录时再执行
+        if ($titleHasChild.length) {
+            $tocTitle.addClass("clickable");
+            $tocTitle.click(function(){
+                if ($subToc.is(":hidden")) {
+                    $subToc.show(150);
+                    $iconToExpand.removeClass("hide");
+                    $iconToFold.addClass("hide");
+                } else {
+                    $subToc.hide(100);
+                    $iconToExpand.addClass("hide");
+                    $iconToFold.removeClass("hide");
+                }
+            })
+        }
+    }();
+})();
+</script>
+
+        
+    
+    <script type="text/javascript">
+        var duoshuoQuery = {short_name:'kaolafe'};
+        (function() {
+            var ds = document.createElement('script');
+            ds.type = 'text/javascript';ds.async = true;
+            <!-- ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js'; -->
+            ds.src = '/js/embed.js';
+            ds.charset = 'UTF-8';
+            (document.getElementsByTagName('head')[0]
+            || document.getElementsByTagName('body')[0]).appendChild(ds);
+
+            ds = document.createElement('script');
+            ds.type = 'text/javascript';ds.async = true;
+            ds.src = '/js/ua-parser.min.js';
+            ds.charset = 'UTF-8';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+    </script>
+    <script type="text/javascript">
+      if (typeof DUOSHUO !== 'undefined')hookDUOSHUO_tp();
+      else $('[src="/js/embed.js"]')[0].onload=hookDUOSHUO_tp;
+      function hookDUOSHUO_tp(){
+          var _D_post=DUOSHUO.templates.post
+          DUOSHUO.templates.post=function (e,t){
+              var rs=_D_post(e,t);
+              if(e.agent&&/^Mozilla/.test(e.agent))rs=rs.replace(/<\/div><p>/,show_ua(e.agent)+'</div><p>');
+              return rs;
+          }
+      }
+      function show_ua(string){
+          $.ua.set(string);
+          var sua=$.ua;
+          if(sua.os.version=='x86_64')sua.os.version='x64';
+          return '<span class="this_ua browser '+sua.browser.name+'">'+sua.browser.name+' | '+sua.browser.version+'</span>'+'<span class="this_ua platform '+sua.os.name+'">'+sua.os.name+' '+sua.os.version+'</span>';
+      }
+  </script>
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

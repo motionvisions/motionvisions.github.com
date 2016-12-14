@@ -12,7 +12,7 @@
 几个例子话不多说，先上例子。
 
 第一个就是2016年的淘宝造物节。
-第二个是腾讯在2014年世界互联网大会上制作的公司介绍页。">
+第二个是腾讯在2014年世界互联网大会上制作的公司介绍页">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS 3D实现虚拟全景探究">
 <meta property="og:url" content="https://motionvisions.github.io/2016/11/28/CSS 3D实现虚拟全景探究/index.html">
@@ -21,16 +21,16 @@
 几个例子话不多说，先上例子。
 
 第一个就是2016年的淘宝造物节。
-第二个是腾讯在2014年世界互联网大会上制作的公司介绍页。">
+第二个是腾讯在2014年世界互联网大会上制作的公司介绍页">
 <meta property="og:image" content="http://haitao.nos.netease.com/ecd06b4b7add4a2a927fea9cd318886f.jpg">
-<meta property="og:updated_time" content="2016-12-11T09:57:53.000Z">
+<meta property="og:updated_time" content="2016-12-14T08:29:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS 3D实现虚拟全景探究">
 <meta name="twitter:description" content="随着移动设备的发展，手机浏览器的兼容性已经变得比较令人满意，绝大部分CSS3属性和HTML5 API已经被移动浏览器支持。今年淘宝造物节的H5活动宣传页实现的3D虚拟全景令人感到惊艳。本文就是来探究如何利用CSS3 和 HTML5 API来实现一个基于浏览器的虚拟全景。
 几个例子话不多说，先上例子。
 
 第一个就是2016年的淘宝造物节。
-第二个是腾讯在2014年世界互联网大会上制作的公司介绍页。">
+第二个是腾讯在2014年世界互联网大会上制作的公司介绍页">
 <meta name="twitter:image" content="http://haitao.nos.netease.com/ecd06b4b7add4a2a927fea9cd318886f.jpg">
     
 
@@ -205,24 +205,71 @@ ga('send', 'pageview');
         <div class="article-entry" itemprop="arti  cleBody">
             <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#几个例子"><span class="toc-number">1.</span> <span class="toc-text">几个例子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#核心技术"><span class="toc-number">2.</span> <span class="toc-text">核心技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#模拟视距的变化-translateZ-perspective"><span class="toc-number">2.1.</span> <span class="toc-text">模拟视距的变化(translateZ, perspective)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模拟视角的变化-rotateX-rotateY-rotateZ"><span class="toc-number">2.2.</span> <span class="toc-text">模拟视角的变化(rotateX, rotateY, rotateZ)</span></a></li></ol></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#几个例子"><span class="toc-number">1.</span> <span class="toc-text">几个例子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#核心技术介绍"><span class="toc-number">2.</span> <span class="toc-text">核心技术介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#模拟视距的变化-translateZ-perspective"><span class="toc-number">2.1.</span> <span class="toc-text">模拟视距的变化(translateZ, perspective)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模拟视角的变化-rotateX-rotateY-rotateZ"><span class="toc-number">2.2.</span> <span class="toc-text">模拟视角的变化(rotateX, rotateY, rotateZ)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模拟真实世界光照模型-transform-style"><span class="toc-number">2.3.</span> <span class="toc-text">模拟真实世界光照模型(transform-style)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML5设备陀螺仪API-deviceorientation"><span class="toc-number">2.4.</span> <span class="toc-text">HTML5设备陀螺仪API(deviceorientation)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#具体实现"><span class="toc-number">3.</span> <span class="toc-text">具体实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#图片的拼接"><span class="toc-number">3.1.</span> <span class="toc-text">图片的拼接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#观察点的定位"><span class="toc-number">3.2.</span> <span class="toc-text">观察点的定位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#视角移动"><span class="toc-number">3.3.</span> <span class="toc-text">视角移动</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DEMO"><span class="toc-number">4.</span> <span class="toc-text">DEMO</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#素材的准备与处理"><span class="toc-number">4.1.</span> <span class="toc-text">素材的准备与处理</span></a></li></ol></li></ol>
                 <span title="关闭目录" class="sidebar-toggle" id="sidebar-toggle"><i class='fa fa-caret-left'></i></span>
                 <span title="展开目录" class="sidebar-toggle-close" id="sidebar-toggle-close"><i class='fa fa-caret-right'></i></span>
             </div>
-            <p><div style="width:80%;margin:0 auto;"><img src="http://haitao.nos.netease.com/ecd06b4b7add4a2a927fea9cd318886f.jpg" alt="" title="文章缩略图"><br></div><br>随着移动设备的发展，手机浏览器的兼容性已经变得比较令人满意，绝大部分CSS3属性和HTML5 API已经被移动浏览器支持。今年淘宝造物节的H5活动宣传页实现的3D虚拟全景令人感到惊艳。本文就是来探究如何利用CSS3 和 HTML5 API来实现一个基于浏览器的虚拟全景。</p>
+            <div style="width:80%;margin:0 auto;"><img src="http://haitao.nos.netease.com/ecd06b4b7add4a2a927fea9cd318886f.jpg" alt="" title="文章缩略图"></div>
+
+<p>随着移动设备的发展，手机浏览器的兼容性已经变得比较令人满意，绝大部分CSS3属性和HTML5 API已经被移动浏览器支持。今年淘宝造物节的H5活动宣传页实现的3D虚拟全景令人感到惊艳。本文就是来探究如何利用CSS3 和 HTML5 API来实现一个基于浏览器的虚拟全景。</p>
 <h2 id="几个例子"><a href="#几个例子" class="headerlink" title="几个例子"></a>几个例子</h2><p>话不多说，先上例子。</p>
 <ol>
 <li>第一个就是2016年的<a href="http://show.im20.com.cn/zwj/" title="1. 淘宝造物节" target="_blank" rel="external">淘宝造物节</a>。</li>
 <li>第二个是腾讯在2014年世界互联网大会上制作的<a href="http://wic.tencent.com/" title="公司介绍页" target="_blank" rel="external">公司介绍页</a>。</li>
 </ol>
-<h2 id="核心技术"><a href="#核心技术" class="headerlink" title="核心技术"></a>核心技术</h2><p>主要的核心技术包括CSS3几个有关2D/3D transform的属性和HTML5设备陀螺仪API。</p>
+<h2 id="核心技术介绍"><a href="#核心技术介绍" class="headerlink" title="核心技术介绍"></a>核心技术介绍</h2><p>主要的核心技术包括CSS3几个有关2D/3D transform的属性和HTML5设备陀螺仪API。</p>
 <h3 id="模拟视距的变化-translateZ-perspective"><a href="#模拟视距的变化-translateZ-perspective" class="headerlink" title="模拟视距的变化(translateZ, perspective)"></a>模拟视距的变化(<strong>translateZ, perspective</strong>)</h3><ul>
-<li><strong>translateZ</strong>是指物体距离屏幕前后的距离。默认值为0，即物体就在屏幕所在平面上。</li>
+<li><strong>translateZ</strong>是指物体距离屏幕所在平面的前后距离。正值时，物体在屏幕所在平面之前；负值时，物体在屏幕所在平面之后。默认值为0，即物体在屏幕所在平面上。</li>
 <li><strong>perspective</strong>是指人眼距离屏幕的距离，同时是否设置<strong>perspective</strong>的值也是浏览器用来判断是否开启3D视角：也就是说<strong>CSS3 transform</strong>由<strong>2D transform </strong>变成了<strong>3D transform</strong>。默认值为none或者0，即不开启3D视角。</li>
 <li><strong>perspective-origin</strong>是指视线直视屏幕上的点所在的位置。默认值为50% 50%，即观察点在屏幕中央。</li>
 </ul>
-<h3 id="模拟视角的变化-rotateX-rotateY-rotateZ"><a href="#模拟视角的变化-rotateX-rotateY-rotateZ" class="headerlink" title="模拟视角的变化(rotateX, rotateY, rotateZ)"></a>模拟视角的变化(<strong>rotateX, rotateY, rotateZ</strong>)</h3><p>模拟人视角变化主要利用到了<strong>transform</strong>中的<strong>rotateX, rotateY, rotateZ</strong>三个属性。通过这三个属性可以模拟人眼在与屏幕平行位置移动时观察屏幕内物体的视觉效果。<br>假设屏幕里有一个正方形。那么可以通过<strong>rotateX</strong>来模拟人上下移动时观察物体的效果；通过<strong>rotateY</strong>来模拟人左右移动时观察物体的效果；通过<strong>rotateZ</strong>来模拟人在倾斜时（比如扭头）观察物体的效果.具体效果如下所示。<br><img src="http://haitao.nos.netease.com/3c9cf180cf1d46ecaede900e67c40f7f.jpg" alt="" title="文章缩略图"></p>
-<iframe height="265" scrolling="no" title="WoyqwQ" src="//codepen.io/ccfe/embed/WoyqwQ/?height=265&theme-id=0&default-tab=css,result&embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="http://codepen.io/ccfe/pen/WoyqwQ/" target="_blank" rel="external">WoyqwQ</a> by ccfe (<a href="http://codepen.io/ccfe" target="_blank" rel="external">@ccfe</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.<br></iframe>
+<p>具体意义可以参考下图。</p>
+<div style="width:49%;float:left;margin-bottom: 20px;"><br><img src="http://haitao.nos.netease.com/44b7683a30044764ad0f1805edf3e9d4.jpg" alt="translateZ" title="文章缩略图"></div><div style="width:49%;float:right;margin-bottom: 20px;"><br><img src="http://haitao.nos.netease.com/33a52b54064d4ce6a6540655e4214d4d.jpg" alt="perspective" title="文章缩略图"></div>
+
+<h3 id="模拟视角的变化-rotateX-rotateY-rotateZ"><a href="#模拟视角的变化-rotateX-rotateY-rotateZ" class="headerlink" title="模拟视角的变化(rotateX, rotateY, rotateZ)"></a>模拟视角的变化(<strong>rotateX, rotateY, rotateZ</strong>)</h3><p>模拟人视角变化主要利用到了<strong>transform</strong>中的<strong>rotateX, rotateY, rotateZ</strong>三个属性。通过这三个属性可以模拟人眼在与屏幕平行位置移动时观察屏幕内物体的视觉效果。<br>假设屏幕里有一个正方形。那么可以通过<strong>rotateX</strong>来模拟人上下移动时观察物体的效果；通过<strong>rotateY</strong>来模拟人左右移动时观察物体的效果；通过<strong>rotateZ</strong>来模拟人在倾斜时（比如扭头）观察物体的效果.具体效果如下所示。</p>
+<div style="width:80%;margin:0 auto;"><img src="http://haitao.nos.netease.com/3c9cf180cf1d46ecaede900e67c40f7f.jpg" alt="rotateX, rotateY, rotateZ" title="文章缩略图"></div>
+
+<h3 id="模拟真实世界光照模型-transform-style"><a href="#模拟真实世界光照模型-transform-style" class="headerlink" title="模拟真实世界光照模型(transform-style)"></a>模拟真实世界光照模型(<strong>transform-style</strong>)</h3><p>在计算机图形学里，学习过光线跟踪算法(Ray Tracing)和辐射度算法(Radiosity)来计算模拟物体在真实世界的遮挡阴影效果。而在浏览器默认状态下，dom结构的中元素是根据其在文档流中的先后顺序来确定遮盖关系的，这显然与真实世界不相符。真实世界中，一般都是视距近的物体会遮挡视觉远的物体。<br>可以通过设置<strong>transform-style</strong>的值来开启模拟真实世界的光照模型（主要是物体遮挡效果，不包括散射、折射、阴影等）。<strong>transform-style</strong>只有两个值：默认值为flat，即不开启；开启则值设为preserve-3d。</p>
+<h3 id="HTML5设备陀螺仪API-deviceorientation"><a href="#HTML5设备陀螺仪API-deviceorientation" class="headerlink" title="HTML5设备陀螺仪API(deviceorientation)"></a>HTML5设备陀螺仪API(<strong>deviceorientation</strong>)</h3><p>在最开始给的两个例子里，用户可以通过扭转手机来改变屏幕中的视角。这是利用了移动设备中的陀螺仪来检测设备方向的变化。<br>在前端可以通过监听<strong>Deviceorientation Event</strong>来实现实时获取设备方向的变化。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (<span class="built_in">window</span>.DeviceOrientationEvent) &#123;</div><div class="line">  <span class="built_in">window</span>.addEventListener(<span class="string">'deviceorientation'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">evt</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> alpha = evt.alpha,</div><div class="line">        beta = evt.beta,</div><div class="line">        gamma = evt.gamma;</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">  alert(<span class="string">'浏览器不支持设备方向api'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>由上面的代码可以看出：</p>
+<ul>
+<li>可以通过<strong>window.DeviceOrientationEvent</strong>对象的存在与否来判断浏览器是否支持H5中的设备方向陀螺仪API。</li>
+<li>可以从EventHandle参数中的Event对象中获得<strong>alpha, beta, gamma</strong>三个属性，这三个属性分别的代表了设备在空间坐标系上三个维度上方向的改变。<strong>alpha</strong>的取值范围为<strong>0~360</strong>，<strong>beta</strong>的取值范围为<strong>-90~90</strong>，<strong>gamma</strong>的取值范围为<strong>-180~180</strong>。三个属性全为0代表设备水平放置与地面平行，具体意义可以参考下图。</li>
+</ul>
+<div style="width:25%;float:left;margin-bottom: 20px;padding-top: 5.5%;"><br><img src="http://haitao.nos.netease.com/8d8ed81212834ab7aefd0f0770dadbdc.png" alt="设备方向坐标" title="文章缩略图"></div><div style="width:25%;float:left;margin-bottom: 20px;"><br><img src="http://haitao.nos.netease.com/8fd982a418544955af6e82d2afc0c7b7.png" alt="alpha" title="文章缩略图"></div><div style="width:25%;float:left;margin-bottom: 20px;"><br><img src="http://haitao.nos.netease.com/9e77b0d519f444b19bb74e3f923ffd98.png" alt="beta" title="文章缩略图"></div><div style="width:25%;float:left;margin-bottom: 20px;"><br><img src="http://haitao.nos.netease.com/a83a00a432e348a0bdda18282c801aac.png" alt="gamma" title="文章缩略图"></div>
+
+<p>除了<strong>deviceorientation</strong>之外，HTML5设备陀螺仪API还支持<strong>DeviceMotion Events</strong>用来获取设备的移动加速度等信息（典型应用：摇一摇）。</p>
+<h2 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h2><p>虚拟全景的实现类似于google街景地图（<a href="https://developers.google.com/maps/documentation/javascript/streetview" title="原理链接" target="_blank" rel="external">原理链接</a>）。简单来说，就是需要将360°的景物平面图片拼成一个立体球形，然后将人的视角放在球的内部，这样当视角360°移动时，就会看到某个方向上的景物，形成3D的视觉效果。</p>
+<div style="width:75%;margin:0 auto;"><img src="https://developers.google.com/maps/documentation/javascript/images/panoramaSphere.png" alt="将各个角度的图片拼成一个球形" title="文章缩略图"></div>
+
+<p>所以搭建一个虚拟全景的步骤可以分为如下几个步骤：</p>
+<ol>
+<li>获取图片，拼接成球；</li>
+<li>定位观察点；</li>
+<li>移动视角产生3D效果。<h3 id="图片的拼接"><a href="#图片的拼接" class="headerlink" title="图片的拼接"></a>图片的拼接</h3>由于真实情况下，获取的图片的都是平面的、不连续的，所以在拼接时，其实是在用多面体模拟真实环境的球体（面越多模拟效果越好）。那么如何将一系列的图片在屏幕中拼接成一个球型呢？这就要用到上面提到的模拟视角变化的<strong>3D transform</strong>中的<strong>rotateY</strong>和<strong>translateZ</strong>属性，通过改变各个图片<strong>rotateY</strong>和<strong>translateZ</strong>的值，来将所有图片拼接成一个首位相连的多面体。<br>下面举例说明。该拼接过程的例子引自<a href="https://desandro.github.io/3dtransforms/docs/carousel.html" title="这篇文章" target="_blank" rel="external">这篇文章</a>。<br>假设现在有9张系列全景图片，每张的长和宽都为210px。那么可以将其拼接成一个9面体来模拟球体，如下图所示。<div style="width:75%;margin:0 auto;"><img src="http://haitao.nos.netease.com/01bfbd02bf024608ba672d517ac13587.png" alt="图片拼接成多面体俯视图" title="文章缩略图"></div></li>
+</ol>
+<ul>
+<li>第一步：为了实现拼接，则需要1~9张图片的<strong>rotateY</strong>值分别取0, 40deg, 80deg, 120deg, ….. ,320deg（从0开始，每次递增360°/n，n为n面体（不包括上下两个面））。</li>
+<li>第二步：在设置了图片的<strong>rotateY</strong>值后，还需要将每个图片向外移动一定距离，来将各个图片首尾相连最终拼接成一个多面体。该距离等于所要构成的多面体的半径（通过设置图片<strong>translateZ</strong>的值），来将各个图片最终拼接成一个多面体。多面体半径的计算过程如下图所示。</li>
+</ul>
+<div style="width:50%;margin:0 auto;"><img src="http://haitao.nos.netease.com/d91336b754b24184945ef40250fec9b7.png" alt="多面体半径的计算" title="文章缩略图"></div>
+
+<p>下面的代码用动画演示了上面所描述的如何将图片拼接成多面体的两个步骤。</p>
+<iframe height="500" scrolling="no" title="WoyqwQ" src="//codepen.io/ccfe/embed/WoyqwQ/?height=500&amp;theme-id=0&amp;default-tab=css,result&amp;embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;"></iframe>
+
+<h3 id="观察点的定位"><a href="#观察点的定位" class="headerlink" title="观察点的定位"></a>观察点的定位</h3><p>在构建起多边体后，下一步需要将人的视角放在多边体的内部，来产生围绕四周360°的全景效果。这里由于视角的位置（<strong>perspective</strong>的值）一般是固定不变的，所以通过改变多面体父元素（可以认为是舞台stage）的<strong>translateZ</strong>属性的值来整体移动舞台，将视角置于多面体之内。<br>还是以上面的例子来说明，上面视角的<strong>perspective</strong>的值为1000px，多面体的每个面的<strong>translateZ</strong>的值为288px，那么舞台<strong>translateZ</strong>的值在[712px, 1288px]区间内都可以满足视角在多面体之内，具体的值可以根据所要展示的效果的来调整。</p>
+<h3 id="视角移动"><a href="#视角移动" class="headerlink" title="视角移动"></a>视角移动</h3><h2 id="DEMO"><a href="#DEMO" class="headerlink" title="DEMO"></a>DEMO</h2><p>基于上面的介绍，下面来简单实现淘宝购物节的部分效果。</p>
+<h3 id="素材的准备与处理"><a href="#素材的准备与处理" class="headerlink" title="素材的准备与处理"></a>素材的准备与处理</h3><ul>
+<li>首先原始图片素材为文章头图给出的造物节全景图图片（图片要是首尾相连的，以保证视图的连续性）。该图片尺寸为1000px宽、453px高。将其按纵列切分为10等分，每份的宽为100px。</li>
+</ul>
+<div style="width:80%;margin:0 auto;"><img src="http://haitao.nos.netease.com/84ba3aca16c04eaa9b46827b7c38ecb0.jpg" alt="原始素材切图" title="文章缩略图"></div>
+
+<ul>
+<li>然后将十张图片拼接成一个10面体。根据上面的公式，可以得知十张图片的<strong>rotateY</strong>值分别取0, 40deg, 80deg, 120deg, ….. ,320deg；图片<strong>translateZ</strong>的值即多面体的半径为154px。</li>
+<li>除此之外，为了观察图片没覆盖的区域的美观，还要准备一张整个环境的背景图。此外，淘宝购物节在多面体的顶部和底部空白处还加了相关LOGO图，如下所示。</li>
+</ul>
+<p><div style="width:100%;margin: 0 auto;"></div></p>
+<p><div style="width:40%;margin: 0 6%;float:left;"><img src="http://haitao.nos.netease.com/fcaa1d192e9847fe8203424c91d9a227.jpg" alt="背景图" title="文章缩略图"></div><div style="width:34%;margin:0 7%;float:left;"><img src="http://haitao.nos.netease.com/c3b5144420ff4b59903e0486ffc11aca.png" alt="logo图" title="文章缩略图"></div><br><br><br></p>
 
         </div>
         <footer class="article-footer" style="display:none;">
@@ -230,7 +277,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="https://motionvisions.github.io/2016/11/28/CSS 3D实现虚拟全景探究/" data-id="ciwhffegf000hh3krgwpb86w5" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://motionvisions.github.io/2016/11/28/CSS 3D实现虚拟全景探究/" data-id="ciwm4id3q00007skrh4caygkh" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -369,6 +416,26 @@ ga('send', 'pageview');
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2016/12/12/Hilo 相关简介/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://camo.githubusercontent.com/3fa3b6d70a06f6e2390ba3b3f29fdd1e448ec085/687474703a2f2f696d67312e746263646e2e636e2f4c312f3436312f312f343734303365323034343963396431313630616434383138373962303263643936663239393864392e706e67)" alt="Hilo 阿里H5游戏引擎简介" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/技术文章/">技术文章</a></p>
+                            <p class="item-title"><a href="/2016/12/12/Hilo 相关简介/" class="title">Hilo 阿里H5游戏引擎简介</a></p>
+                            <p class="item-date"><time datetime="2016-12-11T16:00:00.000Z" itemprop="datePublished">2016-12-12</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2016/12/07/hello-world/" class="thumbnail">
     
     
@@ -435,7 +502,7 @@ ga('send', 'pageview');
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术文章/">技术文章</a><span class="category-list-count">3</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术文章/">技术文章</a><span class="category-list-count">4</span></li></ul>
         </div>
     </div>
 
@@ -445,7 +512,7 @@ ga('send', 'pageview');
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">1</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -455,7 +522,7 @@ ga('send', 'pageview');
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/3D/">3D</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ADFA-tags-tags/">ADFA tags tags</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/">canvas</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/3D/">3D</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ADFA-tags-tags/">ADFA tags tags</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/">canvas</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动画框架/">动画框架</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -465,7 +532,7 @@ ga('send', 'pageview');
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/3D/" style="font-size: 10px;">3D</a> <a href="/tags/ADFA-tags-tags/" style="font-size: 10px;">ADFA tags tags</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a>
+            <a href="/tags/3D/" style="font-size: 10px;">3D</a> <a href="/tags/ADFA-tags-tags/" style="font-size: 10px;">ADFA tags tags</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/动画框架/" style="font-size: 10px;">动画框架</a>
         </div>
     </div>
 
