@@ -6,7 +6,7 @@
 (function(win, doc) {
 	var window = win, document = doc;
 
-	/************ 下面为工具方法 ************/
+	/************ 下面为工具方法  ************/
 	var nodePrototype = Node.prototype;
 	nodePrototype._$hasClass = function(cls) {
     	return this.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
@@ -33,14 +33,15 @@
 	};
 
 
-	//图片加载及进度条逻辑，与展示无关
-	var layer, bar, imageList = ['logo.png','slice_01.jpg','slice_02.jpg','slice_03.jpg','slice_04.jpg',
-			'slice_05.jpg','slice_06.jpg','slice_07.jpg','slice_08.jpg','slice_09.jpg','slice_10.jpg','logo.png'],
-		IMAGES_LEN = imageList.length;
+	/************ 图片加载及进度条逻辑，与展示无关 ************/
+	var layer, bar, imageList = ['logo','slice_01','slice_02','slice_03','slice_04','slice_05','slice_06'
+			,'slice_07','slice_08','slice_09','slice_10','slice_11','slice_12','slice_13','slice_14'
+			,'slice_15','slice_16','slice_17','slice_18','slice_19','slice_20','logo'],
+		IMAGES_LEN = imageList.length, barDuration = 500;
 
 	(layer = document.getElementById('layer'), bar = document.getElementById('bar')) && setTimeout(function() {
 		bar.style.width = '80%';
-	}, 500);
+	}, barDuration);
 
 
 	function createBall() {
@@ -54,10 +55,10 @@
 		ball.appendChild(fragment);
 		setTimeout(function() {
 			bar.style.width = '100%';
-		}, 500);
+		}, barDuration);
 		setTimeout(function() {
 			layer._$setStyle({display: 'none'});
-		}, 1500);
+		}, barDuration*3);
 	};
 
 	imageList.forEach(function(itm, idx) {
@@ -67,7 +68,7 @@
 			IMAGES_LEN --;
 			!IMAGES_LEN && createBall();
 		};
-		img.src = './images/' + itm;
+		img.src = ['./images/', itm, '.png'].join('');
 	});
 
 
