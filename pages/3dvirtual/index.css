@@ -2,20 +2,65 @@
 * @Author: ccfe
 * @Email:  hzchangchao@corp.netease.com
 */
-.eyes {
-  width: 100px;
-  height: 453px;
-  perspective: 1000px;
-  perspective-origin: 50% 50%;
+
+body {
+    max-width: 750px;
+    background: url('http://haitao.nos.netease.com/fcaa1d192e9847fe8203424c91d9a227.jpg');
 }
+
+.eyes {
+    width: 100px;
+    height: 453px;
+    perspective: 1000px;
+    perspective-origin: 50% 50%;
+}
+
 .stage {
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
 }
 
 .ball {
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.ball .slice {
+    display: block;
+    position: absolute;
+    width: 100px;
+    height: 453px;
+}
+
+.layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    width: 100%;
+    height: 100%;
+    background: #555;
+}
+
+.layer .progress {
+	margin: 200px auto 0;
+	height: 26px; 
+	width: 200px;
+	border-radius: 5px;
+	-webkit-box-shadow: 0 1px 5px #000 inset, 0 1px 0 #444;
+	box-shadow: 0 1px 5px #000 inset, 0 1px 0 #444;
+}
+.progress .bar {
+	display: inline-block;
+	height: 22px;
+	width: 0%;
+	margin: 2px 0;
+	border-radius: 5px;
+	transition: width 0.5s ease-in-out;
+	-webkit-transition: width 0.5s ease-in-out;
+	background: #34c2e3;
+	background-image: -webkit-linear-gradient(top, #fecf23, #fd9215);
+	background-image: linear-gradient(top, #fecf23, #fd9215);
 }

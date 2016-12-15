@@ -23,7 +23,7 @@
 第一个就是2016年的淘宝造物节。
 第二个是腾讯在2014年世界互联网大会上制作的公司介绍页">
 <meta property="og:image" content="http://haitao.nos.netease.com/ecd06b4b7add4a2a927fea9cd318886f.jpg">
-<meta property="og:updated_time" content="2016-12-14T08:29:13.000Z">
+<meta property="og:updated_time" content="2016-12-15T07:06:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS 3D实现虚拟全景探究">
 <meta name="twitter:description" content="随着移动设备的发展，手机浏览器的兼容性已经变得比较令人满意，绝大部分CSS3属性和HTML5 API已经被移动浏览器支持。今年淘宝造物节的H5活动宣传页实现的3D虚拟全景令人感到惊艳。本文就是来探究如何利用CSS3 和 HTML5 API来实现一个基于浏览器的虚拟全景。
@@ -260,12 +260,12 @@ ga('send', 'pageview');
 <h3 id="观察点的定位"><a href="#观察点的定位" class="headerlink" title="观察点的定位"></a>观察点的定位</h3><p>在构建起多边体后，下一步需要将人的视角放在多边体的内部，来产生围绕四周360°的全景效果。这里由于视角的位置（<strong>perspective</strong>的值）一般是固定不变的，所以通过改变多面体父元素（可以认为是舞台stage）的<strong>translateZ</strong>属性的值来整体移动舞台，将视角置于多面体之内。<br>还是以上面的例子来说明，上面视角的<strong>perspective</strong>的值为1000px，多面体的每个面的<strong>translateZ</strong>的值为288px，那么舞台<strong>translateZ</strong>的值在[712px, 1288px]区间内都可以满足视角在多面体之内，具体的值可以根据所要展示的效果的来调整。</p>
 <h3 id="视角移动"><a href="#视角移动" class="headerlink" title="视角移动"></a>视角移动</h3><h2 id="DEMO"><a href="#DEMO" class="headerlink" title="DEMO"></a>DEMO</h2><p>基于上面的介绍，下面来简单实现淘宝购物节的部分效果。</p>
 <h3 id="素材的准备与处理"><a href="#素材的准备与处理" class="headerlink" title="素材的准备与处理"></a>素材的准备与处理</h3><ul>
-<li>首先原始图片素材为文章头图给出的造物节全景图图片（图片要是首尾相连的，以保证视图的连续性）。该图片尺寸为1000px宽、453px高。将其按纵列切分为10等分，每份的宽为100px。</li>
+<li>首先原始图片素材为文章头图给出的造物节全景图图片（图片要是首尾相连的，以保证视图的连续性）。该图片尺寸为2580px宽、1170px高。将其按纵列切分为20等分，每份的宽为129px。</li>
 </ul>
-<div style="width:80%;margin:0 auto;"><img src="http://haitao.nos.netease.com/84ba3aca16c04eaa9b46827b7c38ecb0.jpg" alt="原始素材切图" title="文章缩略图"></div>
+<div style="width:80%;margin:0 auto;"><img src="http://haitao.nos.netease.com/c157852db6404599b71947394cb83d4b.jpg" alt="原始素材切图" title="文章缩略图"></div>
 
 <ul>
-<li>然后将十张图片拼接成一个10面体。根据上面的公式，可以得知十张图片的<strong>rotateY</strong>值分别取0, 40deg, 80deg, 120deg, ….. ,320deg；图片<strong>translateZ</strong>的值即多面体的半径为154px。</li>
+<li>然后将十张图片拼接成一个20面体。根据上面的公式，可以得知十张图片的<strong>rotateY</strong>值分别取0, 20deg, 40deg, 60deg, ….. ,340deg；图片<strong>translateZ</strong>的值即多面体的半径为407px。</li>
 <li>除此之外，为了观察图片没覆盖的区域的美观，还要准备一张整个环境的背景图。此外，淘宝购物节在多面体的顶部和底部空白处还加了相关LOGO图，如下所示。</li>
 </ul>
 <p><div style="width:100%;margin: 0 auto;"></div></p>
@@ -277,7 +277,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="https://motionvisions.github.io/2016/11/28/CSS 3D实现虚拟全景探究/" data-id="ciwopeyzn00000hkrdckayz1w" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://motionvisions.github.io/2016/11/28/CSS 3D实现虚拟全景探究/" data-id="ciwoq4arw0000c0krfwjbiro7" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
