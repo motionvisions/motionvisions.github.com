@@ -3,6 +3,10 @@
 * @Email:  hzchangchao@corp.netease.com
 */
 
+body{
+	margin: 0;
+	padding: 0;
+}
 .box {
 	position: relative;
     max-width: 750px;
