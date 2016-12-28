@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hilo-DEMO</title>
+    <meta charset="utf-8">
+    <meta name="Author" contect="kaolafed"/>
+    <meta id="viewport" name="viewport" content="width=device-width;initial-scale=1.0;maximum-scale=1.0; user-scalable=no;"/>
+    <meta name=”apple-mobile-web-app-status-bar-style” content=black” />
+    <link rel="stylesheet" href="./index.css">
+    <style type="text/css">
+    	 body {
+            width:100%;height:100%;margin: 0;padding: 0;
+            background:#B3D4FC;
+        }
+    </style>
+</head>
+<body onload="main();">
+<div id="game-container"></div>
+<script type="text/javascript" src="./hilo.js"></script>
+<script type="text/javascript">
+    var queueRes, stage;
+
+
+
+    function main(){
+      console.log('enter main func');
+        var resources = [
+            {id:'car1', src:'https://raw.githubusercontent.com/a-jie/Agile/master/examples/animate/image/car1.png'},
+            {id:'car2', src:'https://raw.githubusercontent.com/a-jie/Agile/master/examples/animate/image/car2.png'},
+            {id:'tree1', src:'https://github.com/a-jie/Agile/blob/master/examples/animate/image/tree1.png'},
+            {id:'tree2', src:'https://raw.githubusercontent.com/a-jie/Agile/master/examples/animate/image/tree2.png'},
+            {id:'wheel', src:'https://raw.githubusercontent.com/a-jie/Agile/master/examples/animate/image/wheel.png'}
+        ];
+
+        loadResources(resources, init);
+    }
+
+    function loadResources(resources, cb){
+        queueRes = new Hilo.LoadQueue();
+        queueRes.add(resources);
+        queueRes.on('complete', cb);
+        queueRes.start();
+    }
+
+
+    function init(){
+      console.log('init the resources...');
+        var gameContainer = document.getElementById("game-container"),
+            containerWidth = window.innerWidth,
+            containerHeight = window.innerHeight;
+
+        //init stage
+        stage = new Hilo.Stage({
+            renderType:'dom',
+            container: gameContainer,
+            width: containerWidth,
+            height: containerHeight
+        });
+
+
+        //绘制road
+        var road = new Hilo.View({
+           renderType:'dom',
+           width:containerWidth,
+           height:360,
+           background:'rgb(7,51,105)',
+           y:containerHeight - 360
+        }).addTo(stage);
+
+
+        //绘制car
+        //drawCar(type,carX, carHeight, containerHeight)
+        drawCar(1, 50, 144, containerHeight, 360);
+        drawCar(2, 350, 144, containerHeight, 360);
+
+        //绘制树
+        addTree(containerHeight, containerWidth, 360);
+
+
+        //start stage ticker
+        var ticker = new Hilo.Ticker(20);
+        ticker.addTick(stage);
+        ticker.addTick(Hilo.Tween);
+        ticker.start();
+    }
+
+
+    function addTree(containerHeight, containerWidth, roadHeight) {
+        for (var i = 0; i < 5; i++) {
+            var index = Math.round(Math.random() * 2),
+                fx,tx;
+
+
+
+            if(index == 0) index =2;
+            var tree = new Hilo.Bitmap({
+                image: queueRes.get('tree'+index).content
+            });
+
+
+            tree.x = Math.random()*containerWidth + tree.width/2;
+            tree.scaleX = tree.scaleY = Math.random()*.7+.3;
+            tree.y = containerHeight - roadHeight - (tree.height*tree.scaleY);
+            tree.addTo(stage);
+            interlude(tree);
+
+            function interlude(tree){
+                var fx = Math.random() * containerWidth + tree.width / 2;
+                var tx = -fx + Math.max(containerWidth * 2, containerWidth + tree.width / 2 + fx);
+                tree.scaleX = tree.scaleY = Math.random()*.7+.3;
+                tree.y = containerHeight - roadHeight - (tree.height*tree.scaleY);
+                Hilo.Tween.fromTo(
+                        tree, {x: -fx}, {x: tx},
+                        {duration: 3000, ease: Hilo.Ease.Linear.EaseNone, onComplete: function(){
+                            interlude(tree);
+                        }}
+                );
+            }
+        }
+    }
+
+
+    function drawCar(type,carX, carHeight, containerHeight, roadHeight){
+        //wheel图片的相关信息
+        var wheel = {
+            width: 53,height:53
+        };
+
+
+        //先绘制carContainer 作为car的容器，然后向carContainer里面添加carBody和carWheel
+        if(type == 1){
+            var carContainer = new Hilo.Container({
+                x: carX+100,
+                y: containerHeight - roadHeight - carHeight - 25
+            });
+        }else{
+            var carContainer = new Hilo.Container({
+                x: carX,
+                y: containerHeight - roadHeight - carHeight - 25
+            });
+        }
+
+
+
+        //绘制车身
+        var carBody = new Hilo.Bitmap({
+            image: queueRes.get('car'+type).content,
+            rect:[0,0,257,144]
+        });
+
+        //绘制wheel_左边
+        var wheel_l = new Hilo.Bitmap({
+            image:  queueRes.get('wheel').content,
+            x: 30 + wheel.width/2,
+            y: carHeight,
+            pivotX: wheel.width/2,
+            pivotY: wheel.height/2
+        });
+
+        //绘制wheel_右边
+        var wheel_r = new Hilo.Bitmap({
+            image:  queueRes.get('wheel').content,
+            x: 175+ wheel.width/2,
+            y: carHeight,
+            pivotX: wheel.width/2,
+            pivotY: wheel.height/2
+        });
+
+        //移动wheel_l
+        //Tween.to(target, toProps, params) Tween类型动画
+        Hilo.Tween.to(
+                wheel_l,
+                {
+                    rotation: wheel_l.rotation - 360
+                },
+                {
+                    duration:200,
+                    loop:true,
+                    reverse:false
+                }
+        );
+        Hilo.Tween.to(
+                wheel_r,
+                {
+                    rotation: wheel_r.rotation - 360
+                },
+                {
+                    duration:200,
+                    loop:true,
+                    reverse:false
+                }
+        );
+
+        //carBody的上下移动
+        Hilo.Tween.to(
+                carBody,
+                {
+                    y:carBody.y + 6
+                },
+                {
+                    duration: 600,
+                    loop: true,
+                    reverse: true
+                }
+        );
+
+        //CarContainer的上下移动
+        if(type == 1){
+            Hilo.Tween.to(
+                    carContainer,
+                    {
+                        x: carContainer.x + 100
+                    },
+                    {
+                        duration: 500,
+                        loop:true,
+                        reverse:true,
+                        ease:Hilo.Ease.Linear.EaseNone
+                    }
+            );
+        }else{
+            Hilo.Tween.to(
+                    carContainer,
+                    {
+                        x: carContainer.x
+                    },
+                    {
+                        delay: 200,
+                        duration: 500,
+                        loop:true,
+                        reverse:true,
+                        ease:Hilo.Ease.Linear.EaseNone
+                    }
+            );
+        }
+
+        carContainer.addChild(carBody);
+        carContainer.addChild(wheel_l);
+        carContainer.addChild(wheel_r);
+        carContainer.addTo(stage);
+    }
+</script>
+</html>
