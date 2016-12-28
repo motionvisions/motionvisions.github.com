@@ -38,7 +38,7 @@ html,body{height:100%;overflow:hidden;margin:0;padding:0;}
     height: 100%;
     transform-style: preserve-3d;
     -webkit-transform:translateZ(-20000px);
-    // animation: startAnimation 6s;
+    animation: startAnimation 6s;
 }
 
 .axis {
