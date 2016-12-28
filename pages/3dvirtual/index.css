@@ -3,10 +3,7 @@
 * @Email:  hzchangchao@corp.netease.com
 */
 
-body{
-	margin: 0;
-	padding: 0;
-}
+html,body{height:100%;overflow:hidden;}
 .box {
 	position: relative;
     max-width: 750px;
@@ -16,19 +13,22 @@ body{
     padding: 0px;
     overflow: hidden;
     background: url('http://haitao.nos.netease.com/fcaa1d192e9847fe8203424c91d9a227.jpg');
+    background-size: cover;
 }
 
 .eyes {
     width: 129px;
     height: 1170px;
     margin: 0 auto;
+    overflow: hidden;
     perspective: 1000px;
     perspective-origin: 50% 50%;
 }
 
 .stage {
-    width: 100%;
-    height: 100%;
+    left: 0;
+    top: 0;
+	position: absolute;
     perspective-origin: 50% 50%;
     transform-style: preserve-3d;
 }
