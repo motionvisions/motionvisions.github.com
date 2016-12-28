@@ -239,4 +239,58 @@
     
   </entry>
   
+  <entry>
+    <title>淘宝购物节</title>
+    <link href="https://motionvisions.github.io/2016/11/28/CSS%203D%E5%AE%9E%E7%8E%B0%E8%99%9A%E6%8B%9F%E5%85%A8%E6%99%AF%E6%8E%A2%E7%A9%B6-%E5%B1%95%E7%A4%BA/"/>
+    <id>https://motionvisions.github.io/2016/11/28/CSS 3D实现虚拟全景探究-展示/</id>
+    <published>2016-11-27T16:00:00.000Z</published>
+    <updated>2016-12-28T07:13:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<div style="width:80%;margin:0 auto;display: none;"><img src="http://haitao.nos.netease.com/ecd06b4b7add4a2a927fea9cd318886f.jpg" alt="" title="文章缩略图"></div>
+
+<iframe class="displayWindow" id="displayWindow" scrolling="yes" title="CSS 3D实现虚拟全景探究" src="/pages/3dvirtual/index.html" frameborder="no" allowtransparency="true" allowfullscreen="false" style=""></iframe>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;div style=&quot;width:80%;margin:0 auto;display: none;&quot;&gt;&lt;img src=&quot;http://haitao.nos.netease.com/ecd06b4b7add4a2a927fea9cd318886f.jpg&quot; alt=&quot;&quot; tit
+    
+    </summary>
+    
+      <category term="动效展示" scheme="https://motionvisions.github.io/categories/%E5%8A%A8%E6%95%88%E5%B1%95%E7%A4%BA/"/>
+    
+    
+      <category term="CSS3" scheme="https://motionvisions.github.io/tags/CSS3/"/>
+    
+      <category term="3D" scheme="https://motionvisions.github.io/tags/3D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>snabbtJS</title>
+    <link href="https://motionvisions.github.io/2016/11/28/snabbtJS/"/>
+    <id>https://motionvisions.github.io/2016/11/28/snabbtJS/</id>
+    <published>2016-11-27T16:00:00.000Z</published>
+    <updated>2016-12-28T09:46:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<div style="width:80%;margin:0 auto;display: none;"><img src="http://haitao.nosdn1.127.net/14829181763071399853-c0ef6602e54e71ee.png" alt="" title="文章缩略图"></div>
+
+<iframe class="displayWindow" id="displayWindow" scrolling="yes" title="CSS 3D实现虚拟全景探究" src="/pages/3dvirtual/index.html" frameborder="no" allowtransparency="true" allowfullscreen="false" style=""></iframe>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;div style=&quot;width:80%;margin:0 auto;display: none;&quot;&gt;&lt;img src=&quot;http://haitao.nosdn1.127.net/14829181763071399853-c0ef6602e54e71ee.png&quot; alt=&quot;&quot;
+    
+    </summary>
+    
+      <category term="动效库及工具" scheme="https://motionvisions.github.io/categories/%E5%8A%A8%E6%95%88%E5%BA%93%E5%8F%8A%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="CSS3" scheme="https://motionvisions.github.io/tags/CSS3/"/>
+    
+      <category term="3D" scheme="https://motionvisions.github.io/tags/3D/"/>
+    
+  </entry>
+  
 </feed>

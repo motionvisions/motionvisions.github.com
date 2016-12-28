@@ -338,6 +338,14 @@ code {
 #main .main-body-content:after {
   clear: both;
 }
+.j-qrcode {
+  position: absolute;
+  z-index: 1;
+  opacity: 0.25;
+}
+.article-summary-inner:hover .j-qrcode {
+  opacity: 1;
+}
 #header {
   background: #26272b;
   padding-bottom: 60px;
@@ -1610,6 +1618,13 @@ ol.toc {
 #toc ol.toc ol.toc-child {
   padding-left: 1.25em;
   margin: 4px 0;
+}
+.displayWindow {
+  display: block;
+  margin: 50px auto;
+  width: 375px;
+  height: 667px;
+  background-color: #fff;
 }
 #comments {
   padding: 30px 30px 20px;
